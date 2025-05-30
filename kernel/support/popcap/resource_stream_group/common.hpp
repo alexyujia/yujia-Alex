@@ -44,7 +44,7 @@ namespace Sen::Kernel::Support::PopCap::ResourceStreamGroup
             bool texture;
         };
 
-        struct HeaderInformaiton
+        struct HeaderInformation
         {
             uint32_t magic;
             uint32_t version;
@@ -69,7 +69,7 @@ namespace Sen::Kernel::Support::PopCap::ResourceStreamGroup
 
         inline static auto exchange_header(
             DataStreamView &stream,
-            typename HeaderInformaiton &value) -> void
+            HeaderInformation &value) -> void
         {
             stream.read_pos = k_begin_index;
             value.magic = stream.readUint32();
@@ -92,7 +92,7 @@ namespace Sen::Kernel::Support::PopCap::ResourceStreamGroup
         }
 
         inline static auto exchange_header(
-            typename HeaderInformaiton const &value,
+            HeaderInformation const &value,
             DataStreamView &stream) -> void
         {
             stream.write_pos = k_begin_index;
