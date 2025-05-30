@@ -1152,7 +1152,7 @@ namespace Sen::Kernel::Support::Miscellaneous::Custom::StreamCompressedGroup
                 stream.read_pos = static_cast<size_t>(subgroup.resource_content_information_offset);
                 auto resource_content_information = ResourceContentInformation{};
                 exchange_resouce_content_information(stream, resource_content_information);
-                try_assert(resource_content_information.magic == k_resource_content_information_magic_identifier, "invalid_resource_content_magic", "exchange_stream_resource_group");
+                try_assert(resource_content_information.magic == k_resource_content_information_magic_identifier, "invalid_resource_content_magic in exchange_stream_resource_group");
                 try_assert(resource_content_information.version == k_resource_content_information_version, "invalid_resource_content_version", "exchange_stream_resource_group");
                 auto compressed_data = stream.readString(static_cast<size_t>(resource_content_information.information_compressed_size));
                 auto content_data_string = Sen::Kernel::Definition::Encryption::Base64::decode(compressed_data);

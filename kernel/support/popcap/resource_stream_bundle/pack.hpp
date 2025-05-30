@@ -171,7 +171,7 @@ namespace Sen::Kernel::Support::PopCap::ResourceStreamBundle
                     auto packet_structure = PacketStructure{};
                     auto get_packet_structure_only = true;
                     ResourceStreamGroup::Unpack::process_whole(packet_stream, packet_structure, get_packet_structure_only);
-                    auto packet_header_structure = ResourceStreamGroup::Common::HeaderInformaiton{};
+                    auto packet_header_structure = ResourceStreamGroup::Common::HeaderInformation{};
                     ResourceStreamGroup::Common::exchange_header(packet_stream, packet_header_structure);
                     // try_assert(subgroup_information.compression.general == packet_structure.compression.general, "invalid_general_compression");
                     // try_assert(subgroup_information.compression.texture == packet_structure.compression.texture, "invalid_texture_compression");

@@ -192,17 +192,18 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                 }
                 else
                 {
-                    constexpr auto value_package = std::array<std::pair<uint8_t, Curve>, 10>{
-                        std::pair(9, Curve::constant),
-                        std::pair(4, Curve::linear),
-                        std::pair(5, Curve::s),
-                        std::pair(3, Curve::s_inverted),
-                        std::pair(1, Curve::sine),
-                        std::pair(7, Curve::sine_reciprocal),
-                        std::pair(2, Curve::logarithmic_1dot41),
-                        std::pair(0, Curve::logarithmic_3dot0),
-                        std::pair(6, Curve::exponential_1dot41),
-                        std::pair(8, Curve::exponential_3dot0)};
+                    constexpr std::array<std::pair<uint8_t, Curve>, 10> value_package = {{
+                        {9, Curve::constant},
+                        {4, Curve::linear},
+                        {5, Curve::s},
+                        {3, Curve::s_inverted},
+                        {1, Curve::sine},
+                        {7, Curve::sine_reciprocal},
+                        {2, Curve::logarithmic_1dot41},
+                        {0, Curve::logarithmic_3dot0},
+                        {6, Curve::exponential_1dot41},
+                        {8, Curve::exponential_3dot0}
+                    }};
 
                     //---------------------------------
                     if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -237,10 +238,11 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                 {
                     if (k_version < 112_ui)
                     {
-                        constexpr auto value_package = {
-                            std::pair(0, AudioSourceType::embedded),
-                            std::pair(1, AudioSourceType::streamed),
-                            std::pair(2, AudioSourceType::streamed_prefetched)};
+                        constexpr std::array<std::pair<uint8_t, AudioSourceType>, 3> value_package = {{
+                            {0, AudioSourceType::embedded},
+                            {1, AudioSourceType::streamed},
+                            {2, AudioSourceType::streamed_prefetched}
+                        }};
                         //---------------------------------
                         if constexpr (std::is_same<InputType, uint8_t>::value)
                         {
@@ -265,10 +267,11 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                     }
                     else
                     {
-                        constexpr auto value_package = {
-                            std::pair(0, AudioSourceType::embedded),
-                            std::pair(2, AudioSourceType::streamed),
-                            std::pair(1, AudioSourceType::streamed_prefetched)};
+                        constexpr std::array<std::pair<uint8_t, AudioSourceType>, 3> value_package = {{
+                            {0, AudioSourceType::embedded},
+                            {2, AudioSourceType::streamed},
+                            {1, AudioSourceType::streamed_prefetched}
+                        }};
                         //---------------------------------
                         if constexpr (std::is_same<InputType, uint8_t>::value)
                         {
@@ -303,11 +306,12 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                 {
                     if (k_version < 112_ui)
                     {
-                        constexpr auto value_package = std::array<std::pair<uint8_t, MusicTrackClipCurveItemType>, 4>{
-                            std::pair(0, MusicTrackClipCurveItemType::voice_volume),
-                            std::pair(1, MusicTrackClipCurveItemType::voice_low_pass_filter),
-                            std::pair(2, MusicTrackClipCurveItemType::clip_fade_in),
-                            std::pair(3, MusicTrackClipCurveItemType::clip_fade_out)};
+                        constexpr std::array<std::pair<uint8_t, MusicTrackClipCurveItemType>, 4> value_package = {{
+                            {0, MusicTrackClipCurveItemType::voice_volume},
+                            {1, MusicTrackClipCurveItemType::voice_low_pass_filter},
+                            {2, MusicTrackClipCurveItemType::clip_fade_in},
+                            {3, MusicTrackClipCurveItemType::clip_fade_out}
+                        }};
                         //---------------------------------
                         if constexpr (std::is_same<InputType, uint8_t>::value)
                         {
@@ -332,12 +336,13 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                     }
                     else
                     {
-                        constexpr auto value_package = std::array<std::pair<uint8_t, MusicTrackClipCurveItemType>, 5>{
-                            std::pair(0, MusicTrackClipCurveItemType::voice_volume),
-                            std::pair(1, MusicTrackClipCurveItemType::voice_low_pass_filter),
-                            std::pair(2, MusicTrackClipCurveItemType::voice_high_pass_filter),
-                            std::pair(3, MusicTrackClipCurveItemType::clip_fade_in),
-                            std::pair(4, MusicTrackClipCurveItemType::clip_fade_out)};
+                        constexpr std::array<std::pair<uint8_t, MusicTrackClipCurveItemType>, 5> value_package = {{
+                            {0, MusicTrackClipCurveItemType::voice_volume},
+                            {1, MusicTrackClipCurveItemType::voice_low_pass_filter},
+                            {2, MusicTrackClipCurveItemType::voice_high_pass_filter},
+                            {3, MusicTrackClipCurveItemType::clip_fade_in},
+                            {4, MusicTrackClipCurveItemType::clip_fade_out}
+                        }};
                         //---------------------------------
                         if constexpr (std::is_same<InputType, uint8_t>::value)
                         {
@@ -372,15 +377,16 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                 {
                     if (k_version < 112_ui)
                     {
-                        constexpr auto value_package = std::array<std::pair<uint8_t, TimePoint>, 8>{
-                            std::pair(0, TimePoint::immediate),
-                            std::pair(1, TimePoint::next_grid),
-                            std::pair(2, TimePoint::next_bar),
-                            std::pair(3, TimePoint::next_beat),
-                            std::pair(4, TimePoint::next_cue),
-                            std::pair(5, TimePoint::custom_cue),
-                            std::pair(6, TimePoint::entry_cue),
-                            std::pair(7, TimePoint::exit_cue)};
+                        constexpr std::array<std::pair<uint8_t, TimePoint>, 8> value_package = {{
+                            {0, TimePoint::immediate},
+                            {1, TimePoint::next_grid},
+                            {2, TimePoint::next_bar},
+                            {3, TimePoint::next_beat},
+                            {4, TimePoint::next_cue},
+                            {5, TimePoint::custom_cue},
+                            {6, TimePoint::entry_cue},
+                            {7, TimePoint::exit_cue}
+                        }};
                         //---------------------------------
                         if constexpr (std::is_same<InputType, uint8_t>::value)
                         {
@@ -405,16 +411,17 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                     }
                     else
                     {
-                        constexpr auto value_package = std::array<std::pair<uint8_t, TimePoint>, 9>{
-                            std::pair(0, TimePoint::immediate),
-                            std::pair(1, TimePoint::next_grid),
-                            std::pair(2, TimePoint::next_bar),
-                            std::pair(3, TimePoint::next_beat),
-                            std::pair(4, TimePoint::next_cue),
-                            std::pair(5, TimePoint::custom_cue),
-                            std::pair(6, TimePoint::entry_cue),
-                            std::pair(7, TimePoint::exit_cue),
-                            std::pair(9, TimePoint::last_exit_position)};
+                        constexpr std::array<std::pair<uint8_t, TimePoint>, 9> value_package = {{
+                            {0, TimePoint::immediate},
+                            {1, TimePoint::next_grid},
+                            {2, TimePoint::next_bar},
+                            {3, TimePoint::next_beat},
+                            {4, TimePoint::next_cue},
+                            {5, TimePoint::custom_cue},
+                            {6, TimePoint::entry_cue},
+                            {7, TimePoint::exit_cue},
+                            {9, TimePoint::last_exit_position}
+                        }};
                         //---------------------------------
                         if constexpr (std::is_same<InputType, uint8_t>::value)
                         {
@@ -447,10 +454,11 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                 }
                 else
                 {
-                    constexpr auto value_package = std::array<std::pair<uint8_t, CoordinateMode>, 3>{
-                        std::pair(0, CoordinateMode::linear),
-                        std::pair(2, CoordinateMode::scaled),
-                        std::pair(3, CoordinateMode::scaled_3)};
+                    constexpr std::array<std::pair<uint8_t, CoordinateMode>, 3> value_package = {{
+                        {0, CoordinateMode::linear},
+                        {2, CoordinateMode::scaled},
+                        {3, CoordinateMode::scaled_3}
+                    }};
 
                     //---------------------------------
                     if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -485,11 +493,12 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                 {
                     if (k_version < 128_ui)
                     {
-                        constexpr auto value_package = std::array<std::pair<uint8_t, PropertyCategory>, 4>{
-                            std::pair(0, PropertyCategory::unidirectional),
-                            std::pair(1, PropertyCategory::bidirectional),
-                            std::pair(2, PropertyCategory::bidirectional_ranged),
-                            std::pair(3, PropertyCategory::boolean)};
+                        constexpr std::array<std::pair<uint8_t, PropertyCategory>, 4> value_package = {{
+                            {0, PropertyCategory::unidirectional},
+                            {1, PropertyCategory::bidirectional},
+                            {2, PropertyCategory::bidirectional_ranged},
+                            {3, PropertyCategory::boolean}
+                        }};
                         //---------------------------------
                         if constexpr (std::is_same<InputType, uint8_t>::value)
                         {
@@ -514,11 +523,12 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                     }
                     else if (k_version < 145_ui)
                     {
-                        constexpr auto value_package = std::array<std::pair<uint8_t, PropertyCategory>, 4>{
-                            std::pair(1, PropertyCategory::unidirectional),
-                            std::pair(2, PropertyCategory::bidirectional),
-                            std::pair(3, PropertyCategory::bidirectional_ranged),
-                            std::pair(4, PropertyCategory::boolean)};
+                        constexpr std::array<std::pair<uint8_t, PropertyCategory>, 4> value_package = {{
+                            {1, PropertyCategory::unidirectional},
+                            {2, PropertyCategory::bidirectional},
+                            {3, PropertyCategory::bidirectional_ranged},
+                            {4, PropertyCategory::boolean}
+                        }};
                         //---------------------------------
                         if constexpr (std::is_same<InputType, uint8_t>::value)
                         {
@@ -543,13 +553,13 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                     }
                     else
                     {
-                        constexpr auto value_package = std::array<std::pair<uint8_t, PropertyCategory>, 5>{
-                            std::pair(1, PropertyCategory::unidirectional),
-                            std::pair(2, PropertyCategory::bidirectional),
-                            std::pair(3, PropertyCategory::bidirectional_ranged),
-                            std::pair(6, PropertyCategory::boolean),
-                            std::pair(4, PropertyCategory::unknown_6),
-                        };
+                        constexpr std::array<std::pair<uint8_t, PropertyCategory>, 5> value_package = {{
+                            {1, PropertyCategory::unidirectional},
+                            {2, PropertyCategory::bidirectional},
+                            {3, PropertyCategory::bidirectional_ranged},
+                            {6, PropertyCategory::boolean},
+                            {4, PropertyCategory::unknown_6}
+                        }};
                         //---------------------------------
                         if constexpr (std::is_same<InputType, uint8_t>::value)
                         {
@@ -589,10 +599,11 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                     {
                         if (k_version < 145_ui)
                         {
-                            constexpr auto value_package = std::array<std::pair<uint8_t, ParameterCategory>, 3>{
-                                std::pair(0, ParameterCategory::game_parameter),
-                                std::pair(1, ParameterCategory::midi_parameter),
-                                std::pair(2, ParameterCategory::modulator)};
+                            constexpr std::array<std::pair<uint8_t, ParameterCategory>, 3> value_package = {{
+                                {0, ParameterCategory::game_parameter},
+                                {1, ParameterCategory::midi_parameter},
+                                {2, ParameterCategory::modulator}
+                            }};
                             //---------------------------------
                             if constexpr (std::is_same<InputType, uint8_t>::value)
                             {
@@ -617,10 +628,11 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                         }
                         else
                         {
-                            constexpr auto value_package = std::array<std::pair<uint8_t, ParameterCategory>, 9>{
-                                std::pair(0, ParameterCategory::game_parameter),
-                                std::pair(1, ParameterCategory::midi_parameter),
-                                std::pair(4, ParameterCategory::modulator)};
+                            constexpr std::array<std::pair<uint8_t, ParameterCategory>, 3> value_package = {{ // NOTE: This was previously size 9, but only 3 elements were defined. Corrected to 3.
+                                {0, ParameterCategory::game_parameter},
+                                {1, ParameterCategory::midi_parameter},
+                                {4, ParameterCategory::modulator}
+                            }};
                             //---------------------------------
                             if constexpr (std::is_same<InputType, uint8_t>::value)
                             {
@@ -654,9 +666,10 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                 }
                 else
                 {
-                    constexpr auto value_package = std::array<std::pair<uint8_t, AudioPlayType>, 2>{
-                        std::pair(0, AudioPlayType::sequence),
-                        std::pair(1, AudioPlayType::random)};
+                    constexpr std::array<std::pair<uint8_t, AudioPlayType>, 2> value_package = {{
+                        {0, AudioPlayType::sequence},
+                        {1, AudioPlayType::random}
+                    }};
 
                     //---------------------------------
                     if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -689,9 +702,10 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                 }
                 else
                 {
-                    constexpr auto value_package = std::array<std::pair<uint8_t, AudioPlayMode>, 2>{
-                        std::pair(0, AudioPlayMode::step),
-                        std::pair(1, AudioPlayMode::continuous)};
+                    constexpr std::array<std::pair<uint8_t, AudioPlayMode>, 2> value_package = {{
+                        {0, AudioPlayMode::step},
+                        {1, AudioPlayMode::continuous}
+                    }};
 
                     //---------------------------------
                     if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -726,9 +740,10 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                 {
                     if (k_version < 132_ui)
                     {
-                        constexpr auto value_package = std::array<std::pair<uint8_t, AudioPositioningSettingListenerRoutingPositionSourceMode>, 2>{
-                            std::pair(0, AudioPositioningSettingListenerRoutingPositionSourceMode::user_defined),
-                            std::pair(1, AudioPositioningSettingListenerRoutingPositionSourceMode::game_defined)};
+                        constexpr std::array<std::pair<uint8_t, AudioPositioningSettingListenerRoutingPositionSourceMode>, 2> value_package = {{
+                            {0, AudioPositioningSettingListenerRoutingPositionSourceMode::user_defined},
+                            {1, AudioPositioningSettingListenerRoutingPositionSourceMode::game_defined}
+                        }};
 
                         //---------------------------------
                         if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -754,10 +769,11 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                     }
                     else
                     {
-                        constexpr auto value_package = std::array<std::pair<uint8_t, AudioPositioningSettingListenerRoutingPositionSourceMode>, 3>{
-                            std::pair(0, AudioPositioningSettingListenerRoutingPositionSourceMode::emitter),
-                            std::pair(1, AudioPositioningSettingListenerRoutingPositionSourceMode::emitter_with_automation),
-                            std::pair(2, AudioPositioningSettingListenerRoutingPositionSourceMode::listener_with_automation)};
+                        constexpr std::array<std::pair<uint8_t, AudioPositioningSettingListenerRoutingPositionSourceMode>, 3> value_package = {{
+                            {0, AudioPositioningSettingListenerRoutingPositionSourceMode::emitter},
+                            {1, AudioPositioningSettingListenerRoutingPositionSourceMode::emitter_with_automation},
+                            {2, AudioPositioningSettingListenerRoutingPositionSourceMode::listener_with_automation}
+                        }};
 
                         //---------------------------------
                         if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -796,10 +812,11 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                 {
                     if (k_version >= 128_ui)
                     {
-                        constexpr auto value_package = std::array<std::pair<uint8_t, AudioPositioningSettingListenerRoutingSpatialization>, 3>{
-                            std::pair(0, AudioPositioningSettingListenerRoutingSpatialization::none),
-                            std::pair(1, AudioPositioningSettingListenerRoutingSpatialization::position),
-                            std::pair(2, AudioPositioningSettingListenerRoutingSpatialization::position_and_orientation)};
+                        constexpr std::array<std::pair<uint8_t, AudioPositioningSettingListenerRoutingSpatialization>, 3> value_package = {{
+                            {0, AudioPositioningSettingListenerRoutingSpatialization::none},
+                            {1, AudioPositioningSettingListenerRoutingSpatialization::position},
+                            {2, AudioPositioningSettingListenerRoutingSpatialization::position_and_orientation}
+                        }};
 
                         //---------------------------------
                         if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -840,9 +857,10 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                     {
                         if (k_version < 140_ui)
                         {
-                            constexpr auto value_package = std::array<std::pair<uint8_t, AudioPositioningSettingSpeakerPanningMode>, 2>{
-                                std::pair(0, AudioPositioningSettingSpeakerPanningMode::direct_assignment),
-                                std::pair(1, AudioPositioningSettingSpeakerPanningMode::balance_fade)};
+                            constexpr std::array<std::pair<uint8_t, AudioPositioningSettingSpeakerPanningMode>, 2> value_package = {{
+                                {0, AudioPositioningSettingSpeakerPanningMode::direct_assignment},
+                                {1, AudioPositioningSettingSpeakerPanningMode::balance_fade}
+                            }};
                             //---------------------------------
                             if constexpr (std::is_same<InputType, uint8_t>::value)
                             {
@@ -867,10 +885,11 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                         }
                         else
                         {
-                            constexpr auto value_package = std::array<std::pair<uint8_t, AudioPositioningSettingSpeakerPanningMode>, 3>{
-                                std::pair(0, AudioPositioningSettingSpeakerPanningMode::direct_assignment),
-                                std::pair(1, AudioPositioningSettingSpeakerPanningMode::balance_fade),
-                                std::pair(2, AudioPositioningSettingSpeakerPanningMode::steering)};
+                            constexpr std::array<std::pair<uint8_t, AudioPositioningSettingSpeakerPanningMode>, 3> value_package = {{
+                                {0, AudioPositioningSettingSpeakerPanningMode::direct_assignment},
+                                {1, AudioPositioningSettingSpeakerPanningMode::balance_fade},
+                                {2, AudioPositioningSettingSpeakerPanningMode::steering}
+                            }};
                             //---------------------------------
                             if constexpr (std::is_same<InputType, uint8_t>::value)
                             {
@@ -909,9 +928,10 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                 {
                     if (k_version < 132_ui)
                     {
-                        constexpr auto value_package = std::array<std::pair<uint8_t, AudioPositioningSettingType>, 2>{
-                            std::pair(0, AudioPositioningSettingType::two_dimension),
-                            std::pair(1, AudioPositioningSettingType::three_dimension)};
+                        constexpr std::array<std::pair<uint8_t, AudioPositioningSettingType>, 2> value_package = {{
+                            {0, AudioPositioningSettingType::two_dimension},
+                            {1, AudioPositioningSettingType::three_dimension}
+                        }};
 
                         //---------------------------------
                         if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -947,9 +967,10 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                 {
                     if (k_version < 112_ui)
                     {
-                        constexpr auto value_package = std::array<std::pair<uint8_t, BusAutomaticDuckingSettingBusTarget>, 2>{
-                            std::pair(0, BusAutomaticDuckingSettingBusTarget::voice_volume),
-                            std::pair(4, BusAutomaticDuckingSettingBusTarget::bus_volume)};
+                        constexpr std::array<std::pair<uint8_t, BusAutomaticDuckingSettingBusTarget>, 2> value_package = {{
+                            {0, BusAutomaticDuckingSettingBusTarget::voice_volume},
+                            {4, BusAutomaticDuckingSettingBusTarget::bus_volume}
+                        }};
 
                         //---------------------------------
                         if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -975,9 +996,10 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                     }
                     else
                     {
-                        constexpr auto value_package = std::array<std::pair<uint8_t, BusAutomaticDuckingSettingBusTarget>, 2>{
-                            std::pair(0, BusAutomaticDuckingSettingBusTarget::voice_volume),
-                            std::pair(5, BusAutomaticDuckingSettingBusTarget::bus_volume)};
+                        constexpr std::array<std::pair<uint8_t, BusAutomaticDuckingSettingBusTarget>, 2> value_package = {{
+                            {0, BusAutomaticDuckingSettingBusTarget::voice_volume},
+                            {5, BusAutomaticDuckingSettingBusTarget::bus_volume}
+                        }};
 
                         //---------------------------------
                         if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -1016,11 +1038,12 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                 {
                     if (k_version >= 134_ui)
                     {
-                        constexpr auto value_package = std::array<std::pair<uint8_t, MusicTransitionSettingJumpMode>, 4>{
-                            std::pair(0, MusicTransitionSettingJumpMode::start),
-                            std::pair(1, MusicTransitionSettingJumpMode::specific),
-                            std::pair(3, MusicTransitionSettingJumpMode::next),
-                            std::pair(2, MusicTransitionSettingJumpMode::last_played)};
+                        constexpr std::array<std::pair<uint8_t, MusicTransitionSettingJumpMode>, 4> value_package = {{
+                            {0, MusicTransitionSettingJumpMode::start},
+                            {1, MusicTransitionSettingJumpMode::specific},
+                            {3, MusicTransitionSettingJumpMode::next},
+                            {2, MusicTransitionSettingJumpMode::last_played}
+                        }};
 
                         //---------------------------------
                         if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -1054,11 +1077,12 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                 }
                 else
                 {
-                    constexpr auto value_package = std::array<std::pair<uint8_t, MusicTransitionSettingSynchronizeMode>, 4>{
-                        std::pair(0, MusicTransitionSettingSynchronizeMode::entry_cue),
-                        std::pair(2, MusicTransitionSettingSynchronizeMode::random_cue),
-                        std::pair(3, MusicTransitionSettingSynchronizeMode::custom_cue),
-                        std::pair(1, MusicTransitionSettingSynchronizeMode::same_time_as_playing_segment)};
+                    constexpr std::array<std::pair<uint8_t, MusicTransitionSettingSynchronizeMode>, 4> value_package = {{
+                        {0, MusicTransitionSettingSynchronizeMode::entry_cue},
+                        {2, MusicTransitionSettingSynchronizeMode::random_cue},
+                        {3, MusicTransitionSettingSynchronizeMode::custom_cue},
+                        {1, MusicTransitionSettingSynchronizeMode::same_time_as_playing_segment}
+                    }};
 
                     //---------------------------------
                     if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -1096,9 +1120,10 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                 {
                     if (k_version >= 88_ui)
                     {
-                        constexpr auto value_package = std::array<std::pair<uint8_t, BusHDRSettingDynamicReleaseMode>, 2>{
-                            std::pair(0, BusHDRSettingDynamicReleaseMode::linear),
-                            std::pair(1, BusHDRSettingDynamicReleaseMode::exponential)};
+                        constexpr std::array<std::pair<uint8_t, BusHDRSettingDynamicReleaseMode>, 2> value_package = {{
+                            {0, BusHDRSettingDynamicReleaseMode::linear},
+                            {1, BusHDRSettingDynamicReleaseMode::exponential}
+                        }};
 
                         //---------------------------------
                         if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -1137,9 +1162,10 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                 {
                     if (k_version >= 112_ui)
                     {
-                        constexpr auto value_package = std::array<std::pair<uint8_t, SoundMIDISettingEventPlayOn>, 2>{
-                            std::pair(0, SoundMIDISettingEventPlayOn::note_on),
-                            std::pair(2, SoundMIDISettingEventPlayOn::note_off)};
+                        constexpr std::array<std::pair<uint8_t, SoundMIDISettingEventPlayOn>, 2> value_package = {{
+                            {0, SoundMIDISettingEventPlayOn::note_on},
+                            {2, SoundMIDISettingEventPlayOn::note_off}
+                        }};
 
                         //---------------------------------
                         if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -1178,9 +1204,10 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                 {
                     if (k_version >= 112_ui)
                     {
-                        constexpr auto value_package = std::array<std::pair<uint8_t, MusicMIDISettingClipTempoSource>, 2>{
-                            std::pair(0, MusicMIDISettingClipTempoSource::hierarchy),
-                            std::pair(1, MusicMIDISettingClipTempoSource::file)};
+                        constexpr std::array<std::pair<uint8_t, MusicMIDISettingClipTempoSource>, 2> value_package = {{
+                            {0, MusicMIDISettingClipTempoSource::hierarchy},
+                            {1, MusicMIDISettingClipTempoSource::file}
+                        }};
 
                         //---------------------------------
                         if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -1214,9 +1241,10 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                 }
                 else
                 {
-                    constexpr auto value_package = std::array<std::pair<uint8_t, AudioPlaybackLimitSettingScope>, 2>{
-                        std::pair(0, AudioPlaybackLimitSettingScope::per_game_object),
-                        std::pair(1, AudioPlaybackLimitSettingScope::globally)};
+                    constexpr std::array<std::pair<uint8_t, AudioPlaybackLimitSettingScope>, 2> value_package = {{
+                        {0, AudioPlaybackLimitSettingScope::per_game_object},
+                        {1, AudioPlaybackLimitSettingScope::globally}
+                    }};
 
                     //---------------------------------
                     if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -1249,9 +1277,10 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                 }
                 else
                 {
-                    constexpr auto value_package = std::array<std::pair<uint8_t, AudioPlaybackLimitSettingWhenPriorityIsEqual>, 2>{
-                        std::pair(0, AudioPlaybackLimitSettingWhenPriorityIsEqual::discard_oldest_instance),
-                        std::pair(1, AudioPlaybackLimitSettingWhenPriorityIsEqual::discard_newest_instance)};
+                    constexpr std::array<std::pair<uint8_t, AudioPlaybackLimitSettingWhenPriorityIsEqual>, 2> value_package = {{
+                        {0, AudioPlaybackLimitSettingWhenPriorityIsEqual::discard_oldest_instance},
+                        {1, AudioPlaybackLimitSettingWhenPriorityIsEqual::discard_newest_instance}
+                    }};
 
                     //---------------------------------
                     if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -1284,9 +1313,10 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                 }
                 else
                 {
-                    constexpr auto value_package = std::array<std::pair<uint8_t, AudioPlaybackLimitSettingWhenLimitIsReached>, 2>{
-                        std::pair(0, AudioPlaybackLimitSettingWhenLimitIsReached::kill_voice),
-                        std::pair(1, AudioPlaybackLimitSettingWhenLimitIsReached::use_virtual_voice_setting)};
+                    constexpr std::array<std::pair<uint8_t, AudioPlaybackLimitSettingWhenLimitIsReached>, 2> value_package = {{
+                        {0, AudioPlaybackLimitSettingWhenLimitIsReached::kill_voice},
+                        {1, AudioPlaybackLimitSettingWhenLimitIsReached::use_virtual_voice_setting}
+                    }};
 
                     //---------------------------------
                     if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -1321,10 +1351,11 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                 {
                     if (k_version < 140_ui)
                     {
-                        constexpr auto value_package = std::array<std::pair<uint8_t, AudioVirtualVoiceSettingBehavior>, 3>{
-                            std::pair(0, AudioVirtualVoiceSettingBehavior::continue_to_play),
-                            std::pair(1, AudioVirtualVoiceSettingBehavior::kill_voice),
-                            std::pair(2, AudioVirtualVoiceSettingBehavior::send_to_virtual_voice)};
+                        constexpr std::array<std::pair<uint8_t, AudioVirtualVoiceSettingBehavior>, 3> value_package = {{
+                            {0, AudioVirtualVoiceSettingBehavior::continue_to_play},
+                            {1, AudioVirtualVoiceSettingBehavior::kill_voice},
+                            {2, AudioVirtualVoiceSettingBehavior::send_to_virtual_voice}
+                        }};
 
                         //---------------------------------
                         if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -1350,11 +1381,12 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                     }
                     else
                     {
-                        constexpr auto value_package = std::array<std::pair<uint8_t, AudioVirtualVoiceSettingBehavior>, 4>{
-                            std::pair(0, AudioVirtualVoiceSettingBehavior::continue_to_play),
-                            std::pair(1, AudioVirtualVoiceSettingBehavior::kill_voice),
-                            std::pair(2, AudioVirtualVoiceSettingBehavior::send_to_virtual_voice),
-                            std::pair(2, AudioVirtualVoiceSettingBehavior::kill_if_finite_else_virtual)};
+                        constexpr std::array<std::pair<uint8_t, AudioVirtualVoiceSettingBehavior>, 4> value_package = {{
+                            {0, AudioVirtualVoiceSettingBehavior::continue_to_play},
+                            {1, AudioVirtualVoiceSettingBehavior::kill_voice},
+                            {2, AudioVirtualVoiceSettingBehavior::send_to_virtual_voice},
+                            {2, AudioVirtualVoiceSettingBehavior::kill_if_finite_else_virtual} // Note: Original had '2' for the last value, kept as is.
+                        }};
 
                         //---------------------------------
                         if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -1388,10 +1420,11 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                 }
                 else
                 {
-                    constexpr auto value_package = std::array<std::pair<uint8_t, AudioVirtualVoiceSettingOnReturnToPhysical>, 3>{
-                        std::pair(0, AudioVirtualVoiceSettingOnReturnToPhysical::play_from_beginning),
-                        std::pair(1, AudioVirtualVoiceSettingOnReturnToPhysical::play_from_elapsed_time),
-                        std::pair(2, AudioVirtualVoiceSettingOnReturnToPhysical::resume)};
+                    constexpr std::array<std::pair<uint8_t, AudioVirtualVoiceSettingOnReturnToPhysical>, 3> value_package = {{
+                        {0, AudioVirtualVoiceSettingOnReturnToPhysical::play_from_beginning},
+                        {1, AudioVirtualVoiceSettingOnReturnToPhysical::play_from_elapsed_time},
+                        {2, AudioVirtualVoiceSettingOnReturnToPhysical::resume}
+                    }};
 
                     //---------------------------------
                     if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -1424,9 +1457,10 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                 }
                 else
                 {
-                    constexpr auto value_package = std::array<std::pair<uint8_t, AudioAssociationSettingMode>, 2>{
-                        std::pair(0, AudioAssociationSettingMode::best_match),
-                        std::pair(1, AudioAssociationSettingMode::weighted)};
+                    constexpr std::array<std::pair<uint8_t, AudioAssociationSettingMode>, 2> value_package = {{
+                        {0, AudioAssociationSettingMode::best_match},
+                        {1, AudioAssociationSettingMode::weighted}
+                    }};
 
                     //---------------------------------
                     if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -1459,9 +1493,10 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                 }
                 else
                 {
-                    constexpr auto value_package = std::array<std::pair<uint8_t, AudioPlayTypeRandomType>, 2>{
-                        std::pair(0, AudioPlayTypeRandomType::standard),
-                        std::pair(1, AudioPlayTypeRandomType::shuffle)};
+                    constexpr std::array<std::pair<uint8_t, AudioPlayTypeRandomType>, 2> value_package = {{
+                        {0, AudioPlayTypeRandomType::standard},
+                        {1, AudioPlayTypeRandomType::shuffle}
+                    }};
 
                     //---------------------------------
                     if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -1494,9 +1529,10 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                 }
                 else
                 {
-                    constexpr auto value_package = std::array<std::pair<uint8_t, AudioPlayTypeSequenceAtEndOfPlaylist>, 2>{
-                        std::pair(0, AudioPlayTypeSequenceAtEndOfPlaylist::restart),
-                        std::pair(1, AudioPlayTypeSequenceAtEndOfPlaylist::play_in_reserve_order)};
+                    constexpr std::array<std::pair<uint8_t, AudioPlayTypeSequenceAtEndOfPlaylist>, 2> value_package = {{
+                        {0, AudioPlayTypeSequenceAtEndOfPlaylist::restart},
+                        {1, AudioPlayTypeSequenceAtEndOfPlaylist::play_in_reserve_order}
+                    }};
 
                     //---------------------------------
                     if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -1529,13 +1565,14 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                 }
                 else
                 {
-                    constexpr auto value_package = std::array<std::pair<uint8_t, AudioPlayModeContinuousTransitionType>, 6>{
-                        std::pair(0, AudioPlayModeContinuousTransitionType::none),
-                        std::pair(1, AudioPlayModeContinuousTransitionType::xfade_amp),
-                        std::pair(2, AudioPlayModeContinuousTransitionType::xfade_power),
-                        std::pair(3, AudioPlayModeContinuousTransitionType::delay),
-                        std::pair(4, AudioPlayModeContinuousTransitionType::sample_accurate),
-                        std::pair(5, AudioPlayModeContinuousTransitionType::trigger_rate)};
+                    constexpr std::array<std::pair<uint8_t, AudioPlayModeContinuousTransitionType>, 6> value_package = {{
+                        {0, AudioPlayModeContinuousTransitionType::none},
+                        {1, AudioPlayModeContinuousTransitionType::xfade_amp},
+                        {2, AudioPlayModeContinuousTransitionType::xfade_power},
+                        {3, AudioPlayModeContinuousTransitionType::delay},
+                        {4, AudioPlayModeContinuousTransitionType::sample_accurate},
+                        {5, AudioPlayModeContinuousTransitionType::trigger_rate}
+                    }};
 
                     //---------------------------------
                     if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -1575,14 +1612,15 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                     {
                         if (k_version < 128_ui)
                         {
-                            constexpr auto value_package = std::array<std::pair<uint8_t, GameParameterBindToBuiltInParameterMode>, 7>{
-                                std::pair(0, GameParameterBindToBuiltInParameterMode::none),
-                                std::pair(1, GameParameterBindToBuiltInParameterMode::distance),
-                                std::pair(2, GameParameterBindToBuiltInParameterMode::azimuth),
-                                std::pair(3, GameParameterBindToBuiltInParameterMode::elevation),
-                                std::pair(4, GameParameterBindToBuiltInParameterMode::object_to_listener_angle),
-                                std::pair(5, GameParameterBindToBuiltInParameterMode::obstruction),
-                                std::pair(6, GameParameterBindToBuiltInParameterMode::occlusion)};
+                            constexpr std::array<std::pair<uint8_t, GameParameterBindToBuiltInParameterMode>, 7> value_package = {{
+                                {0, GameParameterBindToBuiltInParameterMode::none},
+                                {1, GameParameterBindToBuiltInParameterMode::distance},
+                                {2, GameParameterBindToBuiltInParameterMode::azimuth},
+                                {3, GameParameterBindToBuiltInParameterMode::elevation},
+                                {4, GameParameterBindToBuiltInParameterMode::object_to_listener_angle},
+                                {5, GameParameterBindToBuiltInParameterMode::obstruction},
+                                {6, GameParameterBindToBuiltInParameterMode::occlusion}
+                            }};
 
                             //---------------------------------
                             if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -1608,16 +1646,17 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                         }
                         else
                         {
-                            constexpr auto value_package = std::array<std::pair<uint8_t, GameParameterBindToBuiltInParameterMode>, 9>{
-                                std::pair(0, GameParameterBindToBuiltInParameterMode::none),
-                                std::pair(1, GameParameterBindToBuiltInParameterMode::distance),
-                                std::pair(2, GameParameterBindToBuiltInParameterMode::azimuth),
-                                std::pair(3, GameParameterBindToBuiltInParameterMode::elevation),
-                                std::pair(4, GameParameterBindToBuiltInParameterMode::emitter_cone),
-                                std::pair(5, GameParameterBindToBuiltInParameterMode::obstruction),
-                                std::pair(6, GameParameterBindToBuiltInParameterMode::occlusion),
-                                std::pair(7, GameParameterBindToBuiltInParameterMode::listener_cone),
-                                std::pair(8, GameParameterBindToBuiltInParameterMode::diffraction)};
+                            constexpr std::array<std::pair<uint8_t, GameParameterBindToBuiltInParameterMode>, 9> value_package = {{
+                                {0, GameParameterBindToBuiltInParameterMode::none},
+                                {1, GameParameterBindToBuiltInParameterMode::distance},
+                                {2, GameParameterBindToBuiltInParameterMode::azimuth},
+                                {3, GameParameterBindToBuiltInParameterMode::elevation},
+                                {4, GameParameterBindToBuiltInParameterMode::emitter_cone},
+                                {5, GameParameterBindToBuiltInParameterMode::obstruction},
+                                {6, GameParameterBindToBuiltInParameterMode::occlusion},
+                                {7, GameParameterBindToBuiltInParameterMode::listener_cone},
+                                {8, GameParameterBindToBuiltInParameterMode::diffraction}
+                            }};
 
                             //---------------------------------
                             if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -1657,10 +1696,11 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                 {
                     if (k_version >= 112_ui)
                     {
-                        constexpr auto value_package = std::array<std::pair<uint8_t, GameParameterInterpolationMode>, 3>{
-                            std::pair(0, GameParameterInterpolationMode::none),
-                            std::pair(1, GameParameterInterpolationMode::slew_rate),
-                            std::pair(2, GameParameterInterpolationMode::filtering_over_time)};
+                        constexpr std::array<std::pair<uint8_t, GameParameterInterpolationMode>, 3> value_package = {{
+                            {0, GameParameterInterpolationMode::none},
+                            {1, GameParameterInterpolationMode::slew_rate},
+                            {2, GameParameterInterpolationMode::filtering_over_time}
+                        }};
 
                         //---------------------------------
                         if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -1695,9 +1735,10 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                 }
                 else
                 {
-                    constexpr auto value_package = std::array<std::pair<uint8_t, EventActionProperty::ValueApplyMode>, 2>{
-                        std::pair(1, EventActionProperty::ValueApplyMode::absolute),
-                        std::pair(2, EventActionProperty::ValueApplyMode::relative)};
+                    constexpr std::array<std::pair<uint8_t, EventActionProperty::ValueApplyMode>, 2> value_package = {{
+                        {1, EventActionProperty::ValueApplyMode::absolute},
+                        {2, EventActionProperty::ValueApplyMode::relative}
+                    }};
 
                     //---------------------------------
                     if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -1730,9 +1771,10 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                 }
                 else
                 {
-                    constexpr auto value_package = std::array<std::pair<uint8_t, EventActionProperty::SeekType>, 2>{
-                        std::pair(0, EventActionProperty::SeekType::time),
-                        std::pair(1, EventActionProperty::SeekType::percent)};
+                    constexpr std::array<std::pair<uint8_t, EventActionProperty::SeekType>, 2> value_package = {{
+                        {0, EventActionProperty::SeekType::time},
+                        {1, EventActionProperty::SeekType::percent}
+                    }};
 
                     //---------------------------------
                     if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -1775,11 +1817,12 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                 {
                     if (k_version < 125_ui)
                     {
-                        constexpr auto value_package = std::array<std::pair<uint8_t, EventActionMode>, 4>{
-                            std::pair(0, EventActionMode::none),
-                            std::pair(1, EventActionMode::one),
-                            std::pair(2, EventActionMode::all),
-                            std::pair(4, EventActionMode::all_except)};
+                        constexpr std::array<std::pair<uint8_t, EventActionMode>, 4> value_package = {{
+                            {0, EventActionMode::none},
+                            {1, EventActionMode::one},
+                            {2, EventActionMode::all},
+                            {4, EventActionMode::all_except}
+                        }};
 
                         //---------------------------------
                         if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -1805,10 +1848,11 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                     }
                     else
                     {
-                        constexpr auto value_package = std::array<std::pair<uint8_t, EventActionMode>, 3>{
-                            std::pair(0, EventActionMode::none),
-                            std::pair(1, EventActionMode::one),
-                            std::pair(2, EventActionMode::all)};
+                        constexpr std::array<std::pair<uint8_t, EventActionMode>, 3> value_package = {{
+                            {0, EventActionMode::none},
+                            {1, EventActionMode::one},
+                            {2, EventActionMode::all}
+                        }};
 
                         //---------------------------------
                         if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -1842,9 +1886,10 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                 }
                 else
                 {
-                    constexpr auto value_package = std::array<std::pair<uint8_t, EventActionScope>, 2>{
-                        std::pair(0, EventActionScope::global),
-                        std::pair(1, EventActionScope::game_object)};
+                    constexpr std::array<std::pair<uint8_t, EventActionScope>, 2> value_package = {{
+                        {0, EventActionScope::global},
+                        {1, EventActionScope::game_object}
+                    }};
 
                     //---------------------------------
                     if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -1882,11 +1927,12 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                 {
                     if (k_version >= 112_ui)
                     {
-                        constexpr auto value_package = std::array<std::pair<uint8_t, ModulatorScope>, 4>{
-                            std::pair(0, ModulatorScope::voice),
-                            std::pair(1, ModulatorScope::note_or_event),
-                            std::pair(2, ModulatorScope::game_object),
-                            std::pair(3, ModulatorScope::global)};
+                        constexpr std::array<std::pair<uint8_t, ModulatorScope>, 4> value_package = {{
+                            {0, ModulatorScope::voice},
+                            {1, ModulatorScope::note_or_event},
+                            {2, ModulatorScope::game_object},
+                            {3, ModulatorScope::global}
+                        }};
 
                         //---------------------------------
                         if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -1925,9 +1971,10 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                 {
                     if (k_version >= 112_ui)
                     {
-                        constexpr auto value_package = std::array<std::pair<uint8_t, ModulatorTriggerOn>, 2>{
-                            std::pair(0, ModulatorTriggerOn::play),
-                            std::pair(2, ModulatorTriggerOn::note_off)};
+                        constexpr std::array<std::pair<uint8_t, ModulatorTriggerOn>, 2> value_package = {{
+                            {0, ModulatorTriggerOn::play},
+                            {2, ModulatorTriggerOn::note_off}
+                        }};
 
                         //---------------------------------
                         if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -1968,12 +2015,13 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                     {
                         if (k_version < 125_ui)
                         {
-                            constexpr auto value_package = std::array<std::pair<uint8_t, ModulatorWaveform>, 5>{
-                                std::pair(0, ModulatorWaveform::sine),
-                                std::pair(1, ModulatorWaveform::triangle),
-                                std::pair(2, ModulatorWaveform::square),
-                                std::pair(3, ModulatorWaveform::saw_up),
-                                std::pair(4, ModulatorWaveform::saw_down)};
+                            constexpr std::array<std::pair<uint8_t, ModulatorWaveform>, 5> value_package = {{
+                                {0, ModulatorWaveform::sine},
+                                {1, ModulatorWaveform::triangle},
+                                {2, ModulatorWaveform::square},
+                                {3, ModulatorWaveform::saw_up},
+                                {4, ModulatorWaveform::saw_down}
+                            }};
 
                             //---------------------------------
                             if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -1999,13 +2047,14 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                         }
                         else
                         {
-                            constexpr auto value_package = std::array<std::pair<uint8_t, ModulatorWaveform>, 6>{
-                                std::pair(0, ModulatorWaveform::sine),
-                                std::pair(1, ModulatorWaveform::triangle),
-                                std::pair(2, ModulatorWaveform::square),
-                                std::pair(3, ModulatorWaveform::saw_up),
-                                std::pair(4, ModulatorWaveform::saw_down),
-                                std::pair(5, ModulatorWaveform::random)};
+                            constexpr std::array<std::pair<uint8_t, ModulatorWaveform>, 6> value_package = {{
+                                {0, ModulatorWaveform::sine},
+                                {1, ModulatorWaveform::triangle},
+                                {2, ModulatorWaveform::square},
+                                {3, ModulatorWaveform::saw_up},
+                                {4, ModulatorWaveform::saw_down},
+                                {5, ModulatorWaveform::random}
+                            }};
 
                             //---------------------------------
                             if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -2040,9 +2089,10 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                 }
                 else
                 {
-                        constexpr auto value_package = std::array<std::pair<uint8_t, SoundPlaylistContainerScope>, 2>{
-                            std::pair(0, SoundPlaylistContainerScope::game_object),
-                            std::pair(1, SoundPlaylistContainerScope::global)};
+                        constexpr std::array<std::pair<uint8_t, SoundPlaylistContainerScope>, 2> value_package = {{
+                            {0, SoundPlaylistContainerScope::game_object},
+                            {1, SoundPlaylistContainerScope::global}
+                        }};
 
                         //---------------------------------
                         if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -2078,9 +2128,10 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                 else
                 {
                     if (k_version >= 145_ui) {
-                        constexpr auto value_package = std::array<std::pair<uint8_t, VoiceFilterBehavior>, 2>{
-                            std::pair(0, VoiceFilterBehavior::sum_all_value),
-                            std::pair(1, VoiceFilterBehavior::use_highest_value)};
+                        constexpr std::array<std::pair<uint8_t, VoiceFilterBehavior>, 2> value_package = {{
+                            {0, VoiceFilterBehavior::sum_all_value},
+                            {1, VoiceFilterBehavior::use_highest_value}
+                        }};
 
                         //---------------------------------
                         if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -2116,10 +2167,11 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                 {
                     if (k_version < 112_ui)
                     {
-                        constexpr auto value_package = std::array<std::pair<uint8_t, MusicTrackTrackType>, 3>{
-                            std::pair(0, MusicTrackTrackType::normal),
-                            std::pair(1, MusicTrackTrackType::random_step),
-                            std::pair(2, MusicTrackTrackType::sequence_step)};
+                        constexpr std::array<std::pair<uint8_t, MusicTrackTrackType>, 3> value_package = {{
+                            {0, MusicTrackTrackType::normal},
+                            {1, MusicTrackTrackType::random_step},
+                            {2, MusicTrackTrackType::sequence_step}
+                        }};
 
                         //---------------------------------
                         if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -2145,11 +2197,12 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                     }
                     else
                     {
-                        constexpr auto value_package = std::array<std::pair<uint8_t, MusicTrackTrackType>, 4>{
-                            std::pair(0, MusicTrackTrackType::normal),
-                            std::pair(1, MusicTrackTrackType::random_step),
-                            std::pair(2, MusicTrackTrackType::sequence_step),
-                            std::pair(3, MusicTrackTrackType::switcher)};
+                        constexpr std::array<std::pair<uint8_t, MusicTrackTrackType>, 4> value_package = {{
+                            {0, MusicTrackTrackType::normal},
+                            {1, MusicTrackTrackType::random_step},
+                            {2, MusicTrackTrackType::sequence_step},
+                            {3, MusicTrackTrackType::switcher}
+                        }};
 
                         //---------------------------------
                         if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -2185,26 +2238,27 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                 {
                     if (k_version < 112_ui)
                     {
-                        constexpr auto value_package = std::array<std::pair<uint8_t, HierarchyType>, 19>{
-                            std::pair(0, HierarchyType::unknown),
-                            std::pair(1, HierarchyType::stateful_property_setting),
-                            std::pair(3, HierarchyType::event_action),
-                            std::pair(4, HierarchyType::event),
-                            std::pair(15, HierarchyType::dialogue_event),
-                            std::pair(14, HierarchyType::attenuation),
-                            std::pair(18, HierarchyType::effect),
-                            std::pair(19, HierarchyType::source),
-                            std::pair(8, HierarchyType::audio_bus),
-                            std::pair(20, HierarchyType::auxiliary_audio_bus),
-                            std::pair(2, HierarchyType::sound),
-                            std::pair(5, HierarchyType::sound_playlist_container),
-                            std::pair(6, HierarchyType::sound_switch_container),
-                            std::pair(9, HierarchyType::sound_blend_container),
-                            std::pair(7, HierarchyType::actor_mixer),
-                            std::pair(11, HierarchyType::music_track),
-                            std::pair(10, HierarchyType::music_segment),
-                            std::pair(13, HierarchyType::music_playlist_container),
-                            std::pair(12, HierarchyType::music_switch_container)};
+                        constexpr std::array<std::pair<uint8_t, HierarchyType>, 19> value_package = {{
+                            {0, HierarchyType::unknown},
+                            {1, HierarchyType::stateful_property_setting},
+                            {3, HierarchyType::event_action},
+                            {4, HierarchyType::event},
+                            {15, HierarchyType::dialogue_event},
+                            {14, HierarchyType::attenuation},
+                            {18, HierarchyType::effect},
+                            {19, HierarchyType::source},
+                            {8, HierarchyType::audio_bus},
+                            {20, HierarchyType::auxiliary_audio_bus},
+                            {2, HierarchyType::sound},
+                            {5, HierarchyType::sound_playlist_container},
+                            {6, HierarchyType::sound_switch_container},
+                            {9, HierarchyType::sound_blend_container},
+                            {7, HierarchyType::actor_mixer},
+                            {11, HierarchyType::music_track},
+                            {10, HierarchyType::music_segment},
+                            {13, HierarchyType::music_playlist_container},
+                            {12, HierarchyType::music_switch_container}
+                        }};
 
                         //---------------------------------
                         if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -2230,28 +2284,29 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                     }
                     else if (k_version < 128_ui)
                     {
-                        constexpr auto value_package = std::array<std::pair<uint8_t, HierarchyType>, 21>{
-                            std::pair(0, HierarchyType::unknown),
-                            std::pair(1, HierarchyType::stateful_property_setting),
-                            std::pair(3, HierarchyType::event_action),
-                            std::pair(4, HierarchyType::event),
-                            std::pair(15, HierarchyType::dialogue_event),
-                            std::pair(14, HierarchyType::attenuation),
-                            std::pair(21, HierarchyType::low_frequency_oscillator_modulator),
-                            std::pair(22, HierarchyType::envelope_modulator),
-                            std::pair(18, HierarchyType::effect),
-                            std::pair(19, HierarchyType::source),
-                            std::pair(8, HierarchyType::audio_bus),
-                            std::pair(20, HierarchyType::auxiliary_audio_bus),
-                            std::pair(2, HierarchyType::sound),
-                            std::pair(5, HierarchyType::sound_playlist_container),
-                            std::pair(6, HierarchyType::sound_switch_container),
-                            std::pair(9, HierarchyType::sound_blend_container),
-                            std::pair(7, HierarchyType::actor_mixer),
-                            std::pair(11, HierarchyType::music_track),
-                            std::pair(10, HierarchyType::music_segment),
-                            std::pair(13, HierarchyType::music_playlist_container),
-                            std::pair(12, HierarchyType::music_switch_container)};
+                        constexpr std::array<std::pair<uint8_t, HierarchyType>, 21> value_package = {{
+                            {0, HierarchyType::unknown},
+                            {1, HierarchyType::stateful_property_setting},
+                            {3, HierarchyType::event_action},
+                            {4, HierarchyType::event},
+                            {15, HierarchyType::dialogue_event},
+                            {14, HierarchyType::attenuation},
+                            {21, HierarchyType::low_frequency_oscillator_modulator},
+                            {22, HierarchyType::envelope_modulator},
+                            {18, HierarchyType::effect},
+                            {19, HierarchyType::source},
+                            {8, HierarchyType::audio_bus},
+                            {20, HierarchyType::auxiliary_audio_bus},
+                            {2, HierarchyType::sound},
+                            {5, HierarchyType::sound_playlist_container},
+                            {6, HierarchyType::sound_switch_container},
+                            {9, HierarchyType::sound_blend_container},
+                            {7, HierarchyType::actor_mixer},
+                            {11, HierarchyType::music_track},
+                            {10, HierarchyType::music_segment},
+                            {13, HierarchyType::music_playlist_container},
+                            {12, HierarchyType::music_switch_container}
+                        }};
 
                         //---------------------------------
                         if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -2277,29 +2332,30 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                     }
                     else if (k_version < 132_ui)
                     {
-                        constexpr auto value_package = std::array<std::pair<uint8_t, HierarchyType>, 22>{
-                            std::pair(0, HierarchyType::unknown),
-                            std::pair(1, HierarchyType::stateful_property_setting),
-                            std::pair(3, HierarchyType::event_action),
-                            std::pair(4, HierarchyType::event),
-                            std::pair(15, HierarchyType::dialogue_event),
-                            std::pair(14, HierarchyType::attenuation),
-                            std::pair(19, HierarchyType::low_frequency_oscillator_modulator),
-                            std::pair(20, HierarchyType::envelope_modulator),
-                            std::pair(16, HierarchyType::effect),
-                            std::pair(17, HierarchyType::source),
-                            std::pair(21, HierarchyType::audio_device),
-                            std::pair(8, HierarchyType::audio_bus),
-                            std::pair(18, HierarchyType::auxiliary_audio_bus),
-                            std::pair(2, HierarchyType::sound),
-                            std::pair(5, HierarchyType::sound_playlist_container),
-                            std::pair(6, HierarchyType::sound_switch_container),
-                            std::pair(9, HierarchyType::sound_blend_container),
-                            std::pair(7, HierarchyType::actor_mixer),
-                            std::pair(11, HierarchyType::music_track),
-                            std::pair(10, HierarchyType::music_segment),
-                            std::pair(13, HierarchyType::music_playlist_container),
-                            std::pair(12, HierarchyType::music_switch_container)};
+                        constexpr std::array<std::pair<uint8_t, HierarchyType>, 22> value_package = {{
+                            {0, HierarchyType::unknown},
+                            {1, HierarchyType::stateful_property_setting},
+                            {3, HierarchyType::event_action},
+                            {4, HierarchyType::event},
+                            {15, HierarchyType::dialogue_event},
+                            {14, HierarchyType::attenuation},
+                            {19, HierarchyType::low_frequency_oscillator_modulator},
+                            {20, HierarchyType::envelope_modulator},
+                            {16, HierarchyType::effect},
+                            {17, HierarchyType::source},
+                            {21, HierarchyType::audio_device},
+                            {8, HierarchyType::audio_bus},
+                            {18, HierarchyType::auxiliary_audio_bus},
+                            {2, HierarchyType::sound},
+                            {5, HierarchyType::sound_playlist_container},
+                            {6, HierarchyType::sound_switch_container},
+                            {9, HierarchyType::sound_blend_container},
+                            {7, HierarchyType::actor_mixer},
+                            {11, HierarchyType::music_track},
+                            {10, HierarchyType::music_segment},
+                            {13, HierarchyType::music_playlist_container},
+                            {12, HierarchyType::music_switch_container}
+                        }};
 
                         //---------------------------------
                         if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -2325,30 +2381,31 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                     }
                     else
                     {
-                        constexpr auto value_package = std::array<std::pair<uint8_t, HierarchyType>, 23>{
-                            std::pair(0, HierarchyType::unknown),
-                            std::pair(1, HierarchyType::stateful_property_setting),
-                            std::pair(3, HierarchyType::event_action),
-                            std::pair(4, HierarchyType::event),
-                            std::pair(15, HierarchyType::dialogue_event),
-                            std::pair(14, HierarchyType::attenuation),
-                            std::pair(19, HierarchyType::low_frequency_oscillator_modulator),
-                            std::pair(20, HierarchyType::envelope_modulator),
-                            std::pair(22, HierarchyType::time_modulator),
-                            std::pair(16, HierarchyType::effect),
-                            std::pair(17, HierarchyType::source),
-                            std::pair(21, HierarchyType::audio_device),
-                            std::pair(8, HierarchyType::audio_bus),
-                            std::pair(18, HierarchyType::auxiliary_audio_bus),
-                            std::pair(2, HierarchyType::sound),
-                            std::pair(5, HierarchyType::sound_playlist_container),
-                            std::pair(6, HierarchyType::sound_switch_container),
-                            std::pair(9, HierarchyType::sound_blend_container),
-                            std::pair(7, HierarchyType::actor_mixer),
-                            std::pair(11, HierarchyType::music_track),
-                            std::pair(10, HierarchyType::music_segment),
-                            std::pair(13, HierarchyType::music_playlist_container),
-                            std::pair(12, HierarchyType::music_switch_container)};
+                        constexpr std::array<std::pair<uint8_t, HierarchyType>, 23> value_package = {{
+                            {0, HierarchyType::unknown},
+                            {1, HierarchyType::stateful_property_setting},
+                            {3, HierarchyType::event_action},
+                            {4, HierarchyType::event},
+                            {15, HierarchyType::dialogue_event},
+                            {14, HierarchyType::attenuation},
+                            {19, HierarchyType::low_frequency_oscillator_modulator},
+                            {20, HierarchyType::envelope_modulator},
+                            {22, HierarchyType::time_modulator},
+                            {16, HierarchyType::effect},
+                            {17, HierarchyType::source},
+                            {21, HierarchyType::audio_device},
+                            {8, HierarchyType::audio_bus},
+                            {18, HierarchyType::auxiliary_audio_bus},
+                            {2, HierarchyType::sound},
+                            {5, HierarchyType::sound_playlist_container},
+                            {6, HierarchyType::sound_switch_container},
+                            {9, HierarchyType::sound_blend_container},
+                            {7, HierarchyType::actor_mixer},
+                            {11, HierarchyType::music_track},
+                            {10, HierarchyType::music_segment},
+                            {13, HierarchyType::music_playlist_container},
+                            {12, HierarchyType::music_switch_container}
+                        }};
 
                         //---------------------------------
                         if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -2387,10 +2444,11 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                 {
                     if (k_version < 118_ui)
                     {
-                        constexpr auto value_package = std::array<std::pair<uint8_t, EventActionCommonPropertyType>, 3>{
-                            std::pair(14, EventActionCommonPropertyType::delay),
-                            std::pair(15, EventActionCommonPropertyType::fade_time),
-                            std::pair(16, EventActionCommonPropertyType::probability)};
+                        constexpr std::array<std::pair<uint8_t, EventActionCommonPropertyType>, 3> value_package = {{
+                            {14, EventActionCommonPropertyType::delay},
+                            {15, EventActionCommonPropertyType::fade_time},
+                            {16, EventActionCommonPropertyType::probability}
+                        }};
 
                         //---------------------------------
                         if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -2416,10 +2474,11 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                     }
                     else if (k_version < 150_ui)
                     {
-                        constexpr auto value_package = std::array<std::pair<uint8_t, EventActionCommonPropertyType>, 3>{
-                            std::pair(15, EventActionCommonPropertyType::delay),
-                            std::pair(16, EventActionCommonPropertyType::fade_time),
-                            std::pair(17, EventActionCommonPropertyType::probability)};
+                        constexpr std::array<std::pair<uint8_t, EventActionCommonPropertyType>, 3> value_package = {{
+                            {15, EventActionCommonPropertyType::delay},
+                            {16, EventActionCommonPropertyType::fade_time},
+                            {17, EventActionCommonPropertyType::probability}
+                        }};
 
                         //---------------------------------
                         if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -2445,10 +2504,11 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                     }
                     else
                     {
-                        constexpr auto value_package = std::array<std::pair<uint8_t, EventActionCommonPropertyType>, 3>{
-                            std::pair(57, EventActionCommonPropertyType::delay),
-                            std::pair(58, EventActionCommonPropertyType::fade_time),
-                            std::pair(59, EventActionCommonPropertyType::probability)};
+                        constexpr std::array<std::pair<uint8_t, EventActionCommonPropertyType>, 3> value_package = {{
+                            {57, EventActionCommonPropertyType::delay},
+                            {58, EventActionCommonPropertyType::fade_time},
+                            {59, EventActionCommonPropertyType::probability}
+                        }};
 
                         //---------------------------------
                         if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -2489,27 +2549,28 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                     {
                         if (k_version < 150_ui)
                         {
-                            constexpr auto value_package = std::array<std::pair<uint8_t, ModulatorCommonPropertyType>, 20>{
-                                std::pair(0, ModulatorCommonPropertyType::scope),
-                                std::pair(15, ModulatorCommonPropertyType::trigger_on),
-                                std::pair(2, ModulatorCommonPropertyType::depth),
-                                std::pair(4, ModulatorCommonPropertyType::frequency),
-                                std::pair(5, ModulatorCommonPropertyType::waveform),
-                                std::pair(6, ModulatorCommonPropertyType::smoothing),
-                                std::pair(7, ModulatorCommonPropertyType::pulse_width_modulation),
-                                std::pair(3, ModulatorCommonPropertyType::attack),
-                                std::pair(8, ModulatorCommonPropertyType::initial_phase_offset),
-                                std::pair(9, ModulatorCommonPropertyType::attack_time),
-                                std::pair(10, ModulatorCommonPropertyType::attack_curve),
-                                std::pair(11, ModulatorCommonPropertyType::decay_time),
-                                std::pair(12, ModulatorCommonPropertyType::sustain_level),
-                                std::pair(14, ModulatorCommonPropertyType::release_time),
-                                std::pair(13, ModulatorCommonPropertyType::sustain_time),
-                                std::pair(19, ModulatorCommonPropertyType::initial_delay),
-                                std::pair(16, ModulatorCommonPropertyType::duration),
-                                std::pair(17, ModulatorCommonPropertyType::loop),
-                                std::pair(18, ModulatorCommonPropertyType::playback_rate),
-                                std::pair(1, ModulatorCommonPropertyType::stop_playback)};
+                            constexpr std::array<std::pair<uint8_t, ModulatorCommonPropertyType>, 20> value_package = {{
+                                {0, ModulatorCommonPropertyType::scope},
+                                {15, ModulatorCommonPropertyType::trigger_on},
+                                {2, ModulatorCommonPropertyType::depth},
+                                {4, ModulatorCommonPropertyType::frequency},
+                                {5, ModulatorCommonPropertyType::waveform},
+                                {6, ModulatorCommonPropertyType::smoothing},
+                                {7, ModulatorCommonPropertyType::pulse_width_modulation},
+                                {3, ModulatorCommonPropertyType::attack},
+                                {8, ModulatorCommonPropertyType::initial_phase_offset},
+                                {9, ModulatorCommonPropertyType::attack_time},
+                                {10, ModulatorCommonPropertyType::attack_curve},
+                                {11, ModulatorCommonPropertyType::decay_time},
+                                {12, ModulatorCommonPropertyType::sustain_level},
+                                {14, ModulatorCommonPropertyType::release_time},
+                                {13, ModulatorCommonPropertyType::sustain_time},
+                                {19, ModulatorCommonPropertyType::initial_delay},
+                                {16, ModulatorCommonPropertyType::duration},
+                                {17, ModulatorCommonPropertyType::loop},
+                                {18, ModulatorCommonPropertyType::playback_rate},
+                                {1, ModulatorCommonPropertyType::stop_playback}
+                            }};
 
                             //---------------------------------
                             if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -2535,27 +2596,28 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                         }
                         else
                         {
-                            constexpr auto value_package = std::array<std::pair<uint8_t, ModulatorCommonPropertyType>, 20>{
-                                std::pair(0, ModulatorCommonPropertyType::scope),
-                                std::pair(16, ModulatorCommonPropertyType::trigger_on),
-                                std::pair(2, ModulatorCommonPropertyType::depth),
-                                std::pair(4, ModulatorCommonPropertyType::frequency),
-                                std::pair(5, ModulatorCommonPropertyType::waveform),
-                                std::pair(6, ModulatorCommonPropertyType::smoothing),
-                                std::pair(7, ModulatorCommonPropertyType::pulse_width_modulation),
-                                std::pair(3, ModulatorCommonPropertyType::attack),
-                                std::pair(8, ModulatorCommonPropertyType::initial_phase_offset),
-                                std::pair(10, ModulatorCommonPropertyType::attack_time),
-                                std::pair(11, ModulatorCommonPropertyType::attack_curve),
-                                std::pair(12, ModulatorCommonPropertyType::decay_time),
-                                std::pair(13, ModulatorCommonPropertyType::sustain_level),
-                                std::pair(15, ModulatorCommonPropertyType::release_time),
-                                std::pair(14, ModulatorCommonPropertyType::sustain_time),
-                                std::pair(20, ModulatorCommonPropertyType::initial_delay),
-                                std::pair(17, ModulatorCommonPropertyType::duration),
-                                std::pair(18, ModulatorCommonPropertyType::loop),
-                                std::pair(19, ModulatorCommonPropertyType::playback_rate),
-                                std::pair(1, ModulatorCommonPropertyType::stop_playback)};
+                            constexpr std::array<std::pair<uint8_t, ModulatorCommonPropertyType>, 20> value_package = {{
+                                {0, ModulatorCommonPropertyType::scope},
+                                {16, ModulatorCommonPropertyType::trigger_on},
+                                {2, ModulatorCommonPropertyType::depth},
+                                {4, ModulatorCommonPropertyType::frequency},
+                                {5, ModulatorCommonPropertyType::waveform},
+                                {6, ModulatorCommonPropertyType::smoothing},
+                                {7, ModulatorCommonPropertyType::pulse_width_modulation},
+                                {3, ModulatorCommonPropertyType::attack},
+                                {8, ModulatorCommonPropertyType::initial_phase_offset},
+                                {10, ModulatorCommonPropertyType::attack_time},
+                                {11, ModulatorCommonPropertyType::attack_curve},
+                                {12, ModulatorCommonPropertyType::decay_time},
+                                {13, ModulatorCommonPropertyType::sustain_level},
+                                {15, ModulatorCommonPropertyType::release_time},
+                                {14, ModulatorCommonPropertyType::sustain_time},
+                                {20, ModulatorCommonPropertyType::initial_delay},
+                                {17, ModulatorCommonPropertyType::duration},
+                                {18, ModulatorCommonPropertyType::loop},
+                                {19, ModulatorCommonPropertyType::playback_rate},
+                                {1, ModulatorCommonPropertyType::stop_playback}
+                            }};
 
                             //---------------------------------
                             if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -2592,26 +2654,27 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                 {
                     if (k_version < 88_ui)
                     {
-                        constexpr auto value_package = std::array<std::pair<uint8_t, AudioCommonPropertyType>, 19>{
-                            std::pair(4, AudioCommonPropertyType::bus_volume),
-                            std::pair(23, AudioCommonPropertyType::output_bus_volume),
-                            std::pair(24, AudioCommonPropertyType::output_bus_low_pass_filter),
-                            std::pair(0, AudioCommonPropertyType::voice_volume),
-                            std::pair(2, AudioCommonPropertyType::voice_pitch),
-                            std::pair(3, AudioCommonPropertyType::voice_low_pass_filter),
-                            std::pair(22, AudioCommonPropertyType::game_defined_auxiliary_send_volume),
-                            std::pair(18, AudioCommonPropertyType::user_defined_auxiliary_send_volume_0),
-                            std::pair(19, AudioCommonPropertyType::user_defined_auxiliary_send_volume_1),
-                            std::pair(20, AudioCommonPropertyType::user_defined_auxiliary_send_volume_2),
-                            std::pair(21, AudioCommonPropertyType::user_defined_auxiliary_send_volume_3),
-                            std::pair(13, AudioCommonPropertyType::positioning_center_percent),
-                            std::pair(11, AudioCommonPropertyType::positioning_speaker_panning_x),
-                            std::pair(12, AudioCommonPropertyType::positioning_speaker_panning_y),
-                            std::pair(5, AudioCommonPropertyType::playback_priority_value),
-                            std::pair(6, AudioCommonPropertyType::playback_priority_offset_at_maximum_distance),
-                            std::pair(7, AudioCommonPropertyType::playback_loop),
-                            std::pair(8, AudioCommonPropertyType::motion_volume_offset),
-                            std::pair(9, AudioCommonPropertyType::motion_low_pass_filter)};
+                        constexpr std::array<std::pair<uint8_t, AudioCommonPropertyType>, 19> value_package = {{
+                            {4, AudioCommonPropertyType::bus_volume},
+                            {23, AudioCommonPropertyType::output_bus_volume},
+                            {24, AudioCommonPropertyType::output_bus_low_pass_filter},
+                            {0, AudioCommonPropertyType::voice_volume},
+                            {2, AudioCommonPropertyType::voice_pitch},
+                            {3, AudioCommonPropertyType::voice_low_pass_filter},
+                            {22, AudioCommonPropertyType::game_defined_auxiliary_send_volume},
+                            {18, AudioCommonPropertyType::user_defined_auxiliary_send_volume_0},
+                            {19, AudioCommonPropertyType::user_defined_auxiliary_send_volume_1},
+                            {20, AudioCommonPropertyType::user_defined_auxiliary_send_volume_2},
+                            {21, AudioCommonPropertyType::user_defined_auxiliary_send_volume_3},
+                            {13, AudioCommonPropertyType::positioning_center_percent},
+                            {11, AudioCommonPropertyType::positioning_speaker_panning_x},
+                            {12, AudioCommonPropertyType::positioning_speaker_panning_y},
+                            {5, AudioCommonPropertyType::playback_priority_value},
+                            {6, AudioCommonPropertyType::playback_priority_offset_at_maximum_distance},
+                            {7, AudioCommonPropertyType::playback_loop},
+                            {8, AudioCommonPropertyType::motion_volume_offset},
+                            {9, AudioCommonPropertyType::motion_low_pass_filter}
+                        }};
 
                         //---------------------------------
                         if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -2637,35 +2700,36 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                     }
                     else if (k_version < 112_ui)
                     {
-                        constexpr auto value_package = std::array<std::pair<uint8_t, AudioCommonPropertyType>, 28>{
-                            std::pair(4, AudioCommonPropertyType::bus_volume),
-                            std::pair(23, AudioCommonPropertyType::output_bus_volume),
-                            std::pair(24, AudioCommonPropertyType::output_bus_low_pass_filter),
-                            std::pair(0, AudioCommonPropertyType::voice_volume),
-                            std::pair(2, AudioCommonPropertyType::voice_pitch),
-                            std::pair(3, AudioCommonPropertyType::voice_low_pass_filter),
-                            std::pair(33, AudioCommonPropertyType::voice_volume_make_up_gain),
-                            std::pair(22, AudioCommonPropertyType::game_defined_auxiliary_send_volume),
-                            std::pair(18, AudioCommonPropertyType::user_defined_auxiliary_send_volume_0),
-                            std::pair(19, AudioCommonPropertyType::user_defined_auxiliary_send_volume_1),
-                            std::pair(20, AudioCommonPropertyType::user_defined_auxiliary_send_volume_2),
-                            std::pair(21, AudioCommonPropertyType::user_defined_auxiliary_send_volume_3),
-                            std::pair(13, AudioCommonPropertyType::positioning_center_percent),
-                            std::pair(11, AudioCommonPropertyType::positioning_speaker_panning_x),
-                            std::pair(12, AudioCommonPropertyType::positioning_speaker_panning_y),
-                            std::pair(26, AudioCommonPropertyType::hdr_threshold),
-                            std::pair(27, AudioCommonPropertyType::hdr_ratio),
-                            std::pair(28, AudioCommonPropertyType::hdr_release_time),
-                            std::pair(29, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_id),
-                            std::pair(30, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_minimum),
-                            std::pair(31, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_maximum),
-                            std::pair(32, AudioCommonPropertyType::hdr_envelope_tracking_active_range),
-                            std::pair(5, AudioCommonPropertyType::playback_priority_value),
-                            std::pair(6, AudioCommonPropertyType::playback_priority_offset_at_maximum_distance),
-                            std::pair(25, AudioCommonPropertyType::playback_initial_delay),
-                            std::pair(7, AudioCommonPropertyType::playback_loop),
-                            std::pair(8, AudioCommonPropertyType::motion_volume_offset),
-                            std::pair(9, AudioCommonPropertyType::motion_low_pass_filter)};
+                        constexpr std::array<std::pair<uint8_t, AudioCommonPropertyType>, 28> value_package = {{
+                            {4, AudioCommonPropertyType::bus_volume},
+                            {23, AudioCommonPropertyType::output_bus_volume},
+                            {24, AudioCommonPropertyType::output_bus_low_pass_filter},
+                            {0, AudioCommonPropertyType::voice_volume},
+                            {2, AudioCommonPropertyType::voice_pitch},
+                            {3, AudioCommonPropertyType::voice_low_pass_filter},
+                            {33, AudioCommonPropertyType::voice_volume_make_up_gain},
+                            {22, AudioCommonPropertyType::game_defined_auxiliary_send_volume},
+                            {18, AudioCommonPropertyType::user_defined_auxiliary_send_volume_0},
+                            {19, AudioCommonPropertyType::user_defined_auxiliary_send_volume_1},
+                            {20, AudioCommonPropertyType::user_defined_auxiliary_send_volume_2},
+                            {21, AudioCommonPropertyType::user_defined_auxiliary_send_volume_3},
+                            {13, AudioCommonPropertyType::positioning_center_percent},
+                            {11, AudioCommonPropertyType::positioning_speaker_panning_x},
+                            {12, AudioCommonPropertyType::positioning_speaker_panning_y},
+                            {26, AudioCommonPropertyType::hdr_threshold},
+                            {27, AudioCommonPropertyType::hdr_ratio},
+                            {28, AudioCommonPropertyType::hdr_release_time},
+                            {29, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_id},
+                            {30, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_minimum},
+                            {31, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_maximum},
+                            {32, AudioCommonPropertyType::hdr_envelope_tracking_active_range},
+                            {5, AudioCommonPropertyType::playback_priority_value},
+                            {6, AudioCommonPropertyType::playback_priority_offset_at_maximum_distance},
+                            {25, AudioCommonPropertyType::playback_initial_delay},
+                            {7, AudioCommonPropertyType::playback_loop},
+                            {8, AudioCommonPropertyType::motion_volume_offset},
+                            {9, AudioCommonPropertyType::motion_low_pass_filter}
+                        }};
 
                         //---------------------------------
                         if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -2691,50 +2755,51 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                     }
                     else if (k_version < 118_ui)
                     {
-                        constexpr auto value_package = std::array<std::pair<uint8_t, AudioCommonPropertyType>, 43>{
-                            std::pair(5, AudioCommonPropertyType::bus_volume),
-                            std::pair(23, AudioCommonPropertyType::output_bus_volume),
-                            std::pair(25, AudioCommonPropertyType::output_bus_low_pass_filter),
-                            std::pair(24, AudioCommonPropertyType::output_bus_high_pass_filter),
-                            std::pair(0, AudioCommonPropertyType::voice_volume),
-                            std::pair(2, AudioCommonPropertyType::voice_pitch),
-                            std::pair(3, AudioCommonPropertyType::voice_low_pass_filter),
-                            std::pair(4, AudioCommonPropertyType::voice_high_pass_filter),
-                            std::pair(33, AudioCommonPropertyType::voice_volume_make_up_gain),
-                            std::pair(22, AudioCommonPropertyType::game_defined_auxiliary_send_volume),
-                            std::pair(18, AudioCommonPropertyType::user_defined_auxiliary_send_volume_0),
-                            std::pair(19, AudioCommonPropertyType::user_defined_auxiliary_send_volume_1),
-                            std::pair(20, AudioCommonPropertyType::user_defined_auxiliary_send_volume_2),
-                            std::pair(21, AudioCommonPropertyType::user_defined_auxiliary_send_volume_3),
-                            std::pair(13, AudioCommonPropertyType::positioning_center_percent),
-                            std::pair(11, AudioCommonPropertyType::positioning_speaker_panning_x),
-                            std::pair(12, AudioCommonPropertyType::positioning_speaker_panning_y),
-                            std::pair(26, AudioCommonPropertyType::hdr_threshold),
-                            std::pair(27, AudioCommonPropertyType::hdr_ratio),
-                            std::pair(28, AudioCommonPropertyType::hdr_release_time),
-                            std::pair(29, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_id),
-                            std::pair(30, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_minimum),
-                            std::pair(31, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_maximum),
-                            std::pair(32, AudioCommonPropertyType::hdr_envelope_tracking_active_range),
-                            std::pair(45, AudioCommonPropertyType::midi_note_tracking_root_note),
-                            std::pair(46, AudioCommonPropertyType::midi_event_play_on),
-                            std::pair(47, AudioCommonPropertyType::midi_transformation_transposition),
-                            std::pair(48, AudioCommonPropertyType::midi_transformation_velocity_offset),
-                            std::pair(49, AudioCommonPropertyType::midi_filter_key_range_minimum),
-                            std::pair(50, AudioCommonPropertyType::midi_filter_key_range_maximum),
-                            std::pair(51, AudioCommonPropertyType::midi_filter_velocity_minimum),
-                            std::pair(52, AudioCommonPropertyType::midi_filter_velocity_maximum),
-                            std::pair(53, AudioCommonPropertyType::midi_filter_channel),
-                            std::pair(55, AudioCommonPropertyType::midi_clip_tempo_source),
-                            std::pair(56, AudioCommonPropertyType::midi_target_id),
-                            std::pair(6, AudioCommonPropertyType::playback_priority_value),
-                            std::pair(7, AudioCommonPropertyType::playback_priority_offset_at_maximum_distance),
-                            std::pair(59, AudioCommonPropertyType::playback_initial_delay),
-                            std::pair(58, AudioCommonPropertyType::playback_loop),
-                            std::pair(54, AudioCommonPropertyType::playback_speed),
-                            std::pair(8, AudioCommonPropertyType::motion_volume_offset),
-                            std::pair(9, AudioCommonPropertyType::motion_low_pass_filter),
-                            std::pair(57, AudioCommonPropertyType::mixer_id)};
+                        constexpr std::array<std::pair<uint8_t, AudioCommonPropertyType>, 43> value_package = {{
+                            {5, AudioCommonPropertyType::bus_volume},
+                            {23, AudioCommonPropertyType::output_bus_volume},
+                            {25, AudioCommonPropertyType::output_bus_low_pass_filter},
+                            {24, AudioCommonPropertyType::output_bus_high_pass_filter},
+                            {0, AudioCommonPropertyType::voice_volume},
+                            {2, AudioCommonPropertyType::voice_pitch},
+                            {3, AudioCommonPropertyType::voice_low_pass_filter},
+                            {4, AudioCommonPropertyType::voice_high_pass_filter},
+                            {33, AudioCommonPropertyType::voice_volume_make_up_gain},
+                            {22, AudioCommonPropertyType::game_defined_auxiliary_send_volume},
+                            {18, AudioCommonPropertyType::user_defined_auxiliary_send_volume_0},
+                            {19, AudioCommonPropertyType::user_defined_auxiliary_send_volume_1},
+                            {20, AudioCommonPropertyType::user_defined_auxiliary_send_volume_2},
+                            {21, AudioCommonPropertyType::user_defined_auxiliary_send_volume_3},
+                            {13, AudioCommonPropertyType::positioning_center_percent},
+                            {11, AudioCommonPropertyType::positioning_speaker_panning_x},
+                            {12, AudioCommonPropertyType::positioning_speaker_panning_y},
+                            {26, AudioCommonPropertyType::hdr_threshold},
+                            {27, AudioCommonPropertyType::hdr_ratio},
+                            {28, AudioCommonPropertyType::hdr_release_time},
+                            {29, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_id},
+                            {30, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_minimum},
+                            {31, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_maximum},
+                            {32, AudioCommonPropertyType::hdr_envelope_tracking_active_range},
+                            {45, AudioCommonPropertyType::midi_note_tracking_root_note},
+                            {46, AudioCommonPropertyType::midi_event_play_on},
+                            {47, AudioCommonPropertyType::midi_transformation_transposition},
+                            {48, AudioCommonPropertyType::midi_transformation_velocity_offset},
+                            {49, AudioCommonPropertyType::midi_filter_key_range_minimum},
+                            {50, AudioCommonPropertyType::midi_filter_key_range_maximum},
+                            {51, AudioCommonPropertyType::midi_filter_velocity_minimum},
+                            {52, AudioCommonPropertyType::midi_filter_velocity_maximum},
+                            {53, AudioCommonPropertyType::midi_filter_channel},
+                            {55, AudioCommonPropertyType::midi_clip_tempo_source},
+                            {56, AudioCommonPropertyType::midi_target_id},
+                            {6, AudioCommonPropertyType::playback_priority_value},
+                            {7, AudioCommonPropertyType::playback_priority_offset_at_maximum_distance},
+                            {59, AudioCommonPropertyType::playback_initial_delay},
+                            {58, AudioCommonPropertyType::playback_loop},
+                            {54, AudioCommonPropertyType::playback_speed},
+                            {8, AudioCommonPropertyType::motion_volume_offset},
+                            {9, AudioCommonPropertyType::motion_low_pass_filter},
+                            {57, AudioCommonPropertyType::mixer_id}
+                        }};
 
                         //---------------------------------
                         if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -2760,50 +2825,51 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                     }
                     else if (k_version < 128_ui)
                     {
-                        constexpr auto value_package = std::array<std::pair<uint8_t, AudioCommonPropertyType>, 43>{
-                            std::pair(5, AudioCommonPropertyType::bus_volume),
-                            std::pair(24, AudioCommonPropertyType::output_bus_volume),
-                            std::pair(26, AudioCommonPropertyType::output_bus_low_pass_filter),
-                            std::pair(25, AudioCommonPropertyType::output_bus_high_pass_filter),
-                            std::pair(0, AudioCommonPropertyType::voice_volume),
-                            std::pair(2, AudioCommonPropertyType::voice_pitch),
-                            std::pair(3, AudioCommonPropertyType::voice_low_pass_filter),
-                            std::pair(4, AudioCommonPropertyType::voice_high_pass_filter),
-                            std::pair(6, AudioCommonPropertyType::voice_volume_make_up_gain),
-                            std::pair(23, AudioCommonPropertyType::game_defined_auxiliary_send_volume),
-                            std::pair(19, AudioCommonPropertyType::user_defined_auxiliary_send_volume_0),
-                            std::pair(20, AudioCommonPropertyType::user_defined_auxiliary_send_volume_1),
-                            std::pair(21, AudioCommonPropertyType::user_defined_auxiliary_send_volume_2),
-                            std::pair(22, AudioCommonPropertyType::user_defined_auxiliary_send_volume_3),
-                            std::pair(14, AudioCommonPropertyType::positioning_center_percent),
-                            std::pair(12, AudioCommonPropertyType::positioning_speaker_panning_x),
-                            std::pair(13, AudioCommonPropertyType::positioning_speaker_panning_y),
-                            std::pair(27, AudioCommonPropertyType::hdr_threshold),
-                            std::pair(28, AudioCommonPropertyType::hdr_ratio),
-                            std::pair(29, AudioCommonPropertyType::hdr_release_time),
-                            std::pair(30, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_id),
-                            std::pair(31, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_minimum),
-                            std::pair(32, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_maximum),
-                            std::pair(33, AudioCommonPropertyType::hdr_envelope_tracking_active_range),
-                            std::pair(45, AudioCommonPropertyType::midi_note_tracking_root_note),
-                            std::pair(46, AudioCommonPropertyType::midi_event_play_on),
-                            std::pair(47, AudioCommonPropertyType::midi_transformation_transposition),
-                            std::pair(48, AudioCommonPropertyType::midi_transformation_velocity_offset),
-                            std::pair(49, AudioCommonPropertyType::midi_filter_key_range_minimum),
-                            std::pair(50, AudioCommonPropertyType::midi_filter_key_range_maximum),
-                            std::pair(51, AudioCommonPropertyType::midi_filter_velocity_minimum),
-                            std::pair(52, AudioCommonPropertyType::midi_filter_velocity_maximum),
-                            std::pair(53, AudioCommonPropertyType::midi_filter_channel),
-                            std::pair(55, AudioCommonPropertyType::midi_clip_tempo_source),
-                            std::pair(56, AudioCommonPropertyType::midi_target_id),
-                            std::pair(7, AudioCommonPropertyType::playback_priority_value),
-                            std::pair(8, AudioCommonPropertyType::playback_priority_offset_at_maximum_distance),
-                            std::pair(59, AudioCommonPropertyType::playback_initial_delay),
-                            std::pair(58, AudioCommonPropertyType::playback_loop),
-                            std::pair(54, AudioCommonPropertyType::playback_speed),
-                            std::pair(9, AudioCommonPropertyType::motion_volume_offset),
-                            std::pair(10, AudioCommonPropertyType::motion_low_pass_filter),
-                            std::pair(57, AudioCommonPropertyType::mixer_id)};
+                        constexpr std::array<std::pair<uint8_t, AudioCommonPropertyType>, 43> value_package = {{
+                            {5, AudioCommonPropertyType::bus_volume},
+                            {24, AudioCommonPropertyType::output_bus_volume},
+                            {26, AudioCommonPropertyType::output_bus_low_pass_filter},
+                            {25, AudioCommonPropertyType::output_bus_high_pass_filter},
+                            {0, AudioCommonPropertyType::voice_volume},
+                            {2, AudioCommonPropertyType::voice_pitch},
+                            {3, AudioCommonPropertyType::voice_low_pass_filter},
+                            {4, AudioCommonPropertyType::voice_high_pass_filter},
+                            {6, AudioCommonPropertyType::voice_volume_make_up_gain},
+                            {23, AudioCommonPropertyType::game_defined_auxiliary_send_volume},
+                            {19, AudioCommonPropertyType::user_defined_auxiliary_send_volume_0},
+                            {20, AudioCommonPropertyType::user_defined_auxiliary_send_volume_1},
+                            {21, AudioCommonPropertyType::user_defined_auxiliary_send_volume_2},
+                            {22, AudioCommonPropertyType::user_defined_auxiliary_send_volume_3},
+                            {14, AudioCommonPropertyType::positioning_center_percent},
+                            {12, AudioCommonPropertyType::positioning_speaker_panning_x},
+                            {13, AudioCommonPropertyType::positioning_speaker_panning_y},
+                            {27, AudioCommonPropertyType::hdr_threshold},
+                            {28, AudioCommonPropertyType::hdr_ratio},
+                            {29, AudioCommonPropertyType::hdr_release_time},
+                            {30, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_id},
+                            {31, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_minimum},
+                            {32, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_maximum},
+                            {33, AudioCommonPropertyType::hdr_envelope_tracking_active_range},
+                            {45, AudioCommonPropertyType::midi_note_tracking_root_note},
+                            {46, AudioCommonPropertyType::midi_event_play_on},
+                            {47, AudioCommonPropertyType::midi_transformation_transposition},
+                            {48, AudioCommonPropertyType::midi_transformation_velocity_offset},
+                            {49, AudioCommonPropertyType::midi_filter_key_range_minimum},
+                            {50, AudioCommonPropertyType::midi_filter_key_range_maximum},
+                            {51, AudioCommonPropertyType::midi_filter_velocity_minimum},
+                            {52, AudioCommonPropertyType::midi_filter_velocity_maximum},
+                            {53, AudioCommonPropertyType::midi_filter_channel},
+                            {55, AudioCommonPropertyType::midi_clip_tempo_source},
+                            {56, AudioCommonPropertyType::midi_target_id},
+                            {7, AudioCommonPropertyType::playback_priority_value},
+                            {8, AudioCommonPropertyType::playback_priority_offset_at_maximum_distance},
+                            {59, AudioCommonPropertyType::playback_initial_delay},
+                            {58, AudioCommonPropertyType::playback_loop},
+                            {54, AudioCommonPropertyType::playback_speed},
+                            {9, AudioCommonPropertyType::motion_volume_offset},
+                            {10, AudioCommonPropertyType::motion_low_pass_filter},
+                            {57, AudioCommonPropertyType::mixer_id}
+                        }};
 
                         //---------------------------------
                         if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -2829,58 +2895,59 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                     }
                     else if (k_version < 132_ui)
                     {
-                        constexpr auto value_package = std::array<std::pair<uint8_t, AudioCommonPropertyType>, 51>{
-                            std::pair(5, AudioCommonPropertyType::bus_volume),
-                            std::pair(24, AudioCommonPropertyType::output_bus_volume),
-                            std::pair(26, AudioCommonPropertyType::output_bus_low_pass_filter),
-                            std::pair(25, AudioCommonPropertyType::output_bus_high_pass_filter),
-                            std::pair(0, AudioCommonPropertyType::voice_volume),
-                            std::pair(2, AudioCommonPropertyType::voice_pitch),
-                            std::pair(3, AudioCommonPropertyType::voice_low_pass_filter),
-                            std::pair(4, AudioCommonPropertyType::voice_high_pass_filter),
-                            std::pair(6, AudioCommonPropertyType::voice_volume_make_up_gain),
-                            std::pair(23, AudioCommonPropertyType::game_defined_auxiliary_send_volume),
-                            std::pair(68, AudioCommonPropertyType::game_defined_auxiliary_send_low_pass_filter),
-                            std::pair(69, AudioCommonPropertyType::game_defined_auxiliary_send_high_pass_filter),
-                            std::pair(19, AudioCommonPropertyType::user_defined_auxiliary_send_volume_0),
-                            std::pair(20, AudioCommonPropertyType::user_defined_auxiliary_send_volume_1),
-                            std::pair(21, AudioCommonPropertyType::user_defined_auxiliary_send_volume_2),
-                            std::pair(22, AudioCommonPropertyType::user_defined_auxiliary_send_volume_3),
-                            std::pair(60, AudioCommonPropertyType::user_defined_auxiliary_send_low_pass_filter_0),
-                            std::pair(61, AudioCommonPropertyType::user_defined_auxiliary_send_low_pass_filter_1),
-                            std::pair(62, AudioCommonPropertyType::user_defined_auxiliary_send_low_pass_filter_2),
-                            std::pair(63, AudioCommonPropertyType::user_defined_auxiliary_send_low_pass_filter_3),
-                            std::pair(64, AudioCommonPropertyType::user_defined_auxiliary_send_high_pass_filter_0),
-                            std::pair(65, AudioCommonPropertyType::user_defined_auxiliary_send_high_pass_filter_1),
-                            std::pair(66, AudioCommonPropertyType::user_defined_auxiliary_send_high_pass_filter_2),
-                            std::pair(67, AudioCommonPropertyType::user_defined_auxiliary_send_high_pass_filter_3),
-                            std::pair(14, AudioCommonPropertyType::positioning_center_percent),
-                            std::pair(12, AudioCommonPropertyType::positioning_speaker_panning_x),
-                            std::pair(13, AudioCommonPropertyType::positioning_speaker_panning_y),
-                            std::pair(27, AudioCommonPropertyType::hdr_threshold),
-                            std::pair(28, AudioCommonPropertyType::hdr_ratio),
-                            std::pair(29, AudioCommonPropertyType::hdr_release_time),
-                            std::pair(30, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_id),
-                            std::pair(31, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_minimum),
-                            std::pair(32, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_maximum),
-                            std::pair(33, AudioCommonPropertyType::hdr_envelope_tracking_active_range),
-                            std::pair(45, AudioCommonPropertyType::midi_note_tracking_root_note),
-                            std::pair(46, AudioCommonPropertyType::midi_event_play_on),
-                            std::pair(47, AudioCommonPropertyType::midi_transformation_transposition),
-                            std::pair(48, AudioCommonPropertyType::midi_transformation_velocity_offset),
-                            std::pair(49, AudioCommonPropertyType::midi_filter_key_range_minimum),
-                            std::pair(50, AudioCommonPropertyType::midi_filter_key_range_maximum),
-                            std::pair(51, AudioCommonPropertyType::midi_filter_velocity_minimum),
-                            std::pair(52, AudioCommonPropertyType::midi_filter_velocity_maximum),
-                            std::pair(53, AudioCommonPropertyType::midi_filter_channel),
-                            std::pair(55, AudioCommonPropertyType::midi_clip_tempo_source),
-                            std::pair(56, AudioCommonPropertyType::midi_target_id),
-                            std::pair(7, AudioCommonPropertyType::playback_priority_value),
-                            std::pair(8, AudioCommonPropertyType::playback_priority_offset_at_maximum_distance),
-                            std::pair(59, AudioCommonPropertyType::playback_initial_delay),
-                            std::pair(58, AudioCommonPropertyType::playback_loop),
-                            std::pair(54, AudioCommonPropertyType::playback_speed),
-                            std::pair(57, AudioCommonPropertyType::mixer_id)};
+                        constexpr std::array<std::pair<uint8_t, AudioCommonPropertyType>, 51> value_package = {{
+                            {5, AudioCommonPropertyType::bus_volume},
+                            {24, AudioCommonPropertyType::output_bus_volume},
+                            {26, AudioCommonPropertyType::output_bus_low_pass_filter},
+                            {25, AudioCommonPropertyType::output_bus_high_pass_filter},
+                            {0, AudioCommonPropertyType::voice_volume},
+                            {2, AudioCommonPropertyType::voice_pitch},
+                            {3, AudioCommonPropertyType::voice_low_pass_filter},
+                            {4, AudioCommonPropertyType::voice_high_pass_filter},
+                            {6, AudioCommonPropertyType::voice_volume_make_up_gain},
+                            {23, AudioCommonPropertyType::game_defined_auxiliary_send_volume},
+                            {68, AudioCommonPropertyType::game_defined_auxiliary_send_low_pass_filter},
+                            {69, AudioCommonPropertyType::game_defined_auxiliary_send_high_pass_filter},
+                            {19, AudioCommonPropertyType::user_defined_auxiliary_send_volume_0},
+                            {20, AudioCommonPropertyType::user_defined_auxiliary_send_volume_1},
+                            {21, AudioCommonPropertyType::user_defined_auxiliary_send_volume_2},
+                            {22, AudioCommonPropertyType::user_defined_auxiliary_send_volume_3},
+                            {60, AudioCommonPropertyType::user_defined_auxiliary_send_low_pass_filter_0},
+                            {61, AudioCommonPropertyType::user_defined_auxiliary_send_low_pass_filter_1},
+                            {62, AudioCommonPropertyType::user_defined_auxiliary_send_low_pass_filter_2},
+                            {63, AudioCommonPropertyType::user_defined_auxiliary_send_low_pass_filter_3},
+                            {64, AudioCommonPropertyType::user_defined_auxiliary_send_high_pass_filter_0},
+                            {65, AudioCommonPropertyType::user_defined_auxiliary_send_high_pass_filter_1},
+                            {66, AudioCommonPropertyType::user_defined_auxiliary_send_high_pass_filter_2},
+                            {67, AudioCommonPropertyType::user_defined_auxiliary_send_high_pass_filter_3},
+                            {14, AudioCommonPropertyType::positioning_center_percent},
+                            {12, AudioCommonPropertyType::positioning_speaker_panning_x},
+                            {13, AudioCommonPropertyType::positioning_speaker_panning_y},
+                            {27, AudioCommonPropertyType::hdr_threshold},
+                            {28, AudioCommonPropertyType::hdr_ratio},
+                            {29, AudioCommonPropertyType::hdr_release_time},
+                            {30, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_id},
+                            {31, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_minimum},
+                            {32, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_maximum},
+                            {33, AudioCommonPropertyType::hdr_envelope_tracking_active_range},
+                            {45, AudioCommonPropertyType::midi_note_tracking_root_note},
+                            {46, AudioCommonPropertyType::midi_event_play_on},
+                            {47, AudioCommonPropertyType::midi_transformation_transposition},
+                            {48, AudioCommonPropertyType::midi_transformation_velocity_offset},
+                            {49, AudioCommonPropertyType::midi_filter_key_range_minimum},
+                            {50, AudioCommonPropertyType::midi_filter_key_range_maximum},
+                            {51, AudioCommonPropertyType::midi_filter_velocity_minimum},
+                            {52, AudioCommonPropertyType::midi_filter_velocity_maximum},
+                            {53, AudioCommonPropertyType::midi_filter_channel},
+                            {55, AudioCommonPropertyType::midi_clip_tempo_source},
+                            {56, AudioCommonPropertyType::midi_target_id},
+                            {7, AudioCommonPropertyType::playback_priority_value},
+                            {8, AudioCommonPropertyType::playback_priority_offset_at_maximum_distance},
+                            {59, AudioCommonPropertyType::playback_initial_delay},
+                            {58, AudioCommonPropertyType::playback_loop},
+                            {54, AudioCommonPropertyType::playback_speed},
+                            {57, AudioCommonPropertyType::mixer_id}
+                        }};
 
                         //---------------------------------
                         if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -2906,60 +2973,61 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                     }
                     else if (k_version < 135_ui)
                     {
-                        constexpr auto value_package = std::array<std::pair<uint8_t, AudioCommonPropertyType>, 53>{
-                            std::pair(5, AudioCommonPropertyType::bus_volume),
-                            std::pair(24, AudioCommonPropertyType::output_bus_volume),
-                            std::pair(26, AudioCommonPropertyType::output_bus_low_pass_filter),
-                            std::pair(25, AudioCommonPropertyType::output_bus_high_pass_filter),
-                            std::pair(0, AudioCommonPropertyType::voice_volume),
-                            std::pair(2, AudioCommonPropertyType::voice_pitch),
-                            std::pair(3, AudioCommonPropertyType::voice_low_pass_filter),
-                            std::pair(4, AudioCommonPropertyType::voice_high_pass_filter),
-                            std::pair(6, AudioCommonPropertyType::voice_volume_make_up_gain),
-                            std::pair(23, AudioCommonPropertyType::game_defined_auxiliary_send_volume),
-                            std::pair(68, AudioCommonPropertyType::game_defined_auxiliary_send_low_pass_filter),
-                            std::pair(69, AudioCommonPropertyType::game_defined_auxiliary_send_high_pass_filter),
-                            std::pair(19, AudioCommonPropertyType::user_defined_auxiliary_send_volume_0),
-                            std::pair(20, AudioCommonPropertyType::user_defined_auxiliary_send_volume_1),
-                            std::pair(21, AudioCommonPropertyType::user_defined_auxiliary_send_volume_2),
-                            std::pair(22, AudioCommonPropertyType::user_defined_auxiliary_send_volume_3),
-                            std::pair(60, AudioCommonPropertyType::user_defined_auxiliary_send_low_pass_filter_0),
-                            std::pair(61, AudioCommonPropertyType::user_defined_auxiliary_send_low_pass_filter_1),
-                            std::pair(62, AudioCommonPropertyType::user_defined_auxiliary_send_low_pass_filter_2),
-                            std::pair(63, AudioCommonPropertyType::user_defined_auxiliary_send_low_pass_filter_3),
-                            std::pair(64, AudioCommonPropertyType::user_defined_auxiliary_send_high_pass_filter_0),
-                            std::pair(65, AudioCommonPropertyType::user_defined_auxiliary_send_high_pass_filter_1),
-                            std::pair(66, AudioCommonPropertyType::user_defined_auxiliary_send_high_pass_filter_2),
-                            std::pair(67, AudioCommonPropertyType::user_defined_auxiliary_send_high_pass_filter_3),
-                            std::pair(14, AudioCommonPropertyType::positioning_center_percent),
-                            std::pair(12, AudioCommonPropertyType::positioning_speaker_panning_x),
-                            std::pair(13, AudioCommonPropertyType::positioning_speaker_panning_y),
-                            std::pair(71, AudioCommonPropertyType::positioning_listener_routing_speaker_panning_division_spatialization_mix),
-                            std::pair(70, AudioCommonPropertyType::positioning_listener_routing_attenuation_id),
-                            std::pair(27, AudioCommonPropertyType::hdr_threshold),
-                            std::pair(28, AudioCommonPropertyType::hdr_ratio),
-                            std::pair(29, AudioCommonPropertyType::hdr_release_time),
-                            std::pair(30, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_id),
-                            std::pair(31, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_minimum),
-                            std::pair(32, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_maximum),
-                            std::pair(33, AudioCommonPropertyType::hdr_envelope_tracking_active_range),
-                            std::pair(45, AudioCommonPropertyType::midi_note_tracking_root_note),
-                            std::pair(46, AudioCommonPropertyType::midi_event_play_on),
-                            std::pair(47, AudioCommonPropertyType::midi_transformation_transposition),
-                            std::pair(48, AudioCommonPropertyType::midi_transformation_velocity_offset),
-                            std::pair(49, AudioCommonPropertyType::midi_filter_key_range_minimum),
-                            std::pair(50, AudioCommonPropertyType::midi_filter_key_range_maximum),
-                            std::pair(51, AudioCommonPropertyType::midi_filter_velocity_minimum),
-                            std::pair(52, AudioCommonPropertyType::midi_filter_velocity_maximum),
-                            std::pair(53, AudioCommonPropertyType::midi_filter_channel),
-                            std::pair(55, AudioCommonPropertyType::midi_clip_tempo_source),
-                            std::pair(56, AudioCommonPropertyType::midi_target_id),
-                            std::pair(7, AudioCommonPropertyType::playback_priority_value),
-                            std::pair(8, AudioCommonPropertyType::playback_priority_offset_at_maximum_distance),
-                            std::pair(59, AudioCommonPropertyType::playback_initial_delay),
-                            std::pair(58, AudioCommonPropertyType::playback_loop),
-                            std::pair(54, AudioCommonPropertyType::playback_speed),
-                            std::pair(57, AudioCommonPropertyType::mixer_id)};
+                        constexpr std::array<std::pair<uint8_t, AudioCommonPropertyType>, 53> value_package = {{
+                            {5, AudioCommonPropertyType::bus_volume},
+                            {24, AudioCommonPropertyType::output_bus_volume},
+                            {26, AudioCommonPropertyType::output_bus_low_pass_filter},
+                            {25, AudioCommonPropertyType::output_bus_high_pass_filter},
+                            {0, AudioCommonPropertyType::voice_volume},
+                            {2, AudioCommonPropertyType::voice_pitch},
+                            {3, AudioCommonPropertyType::voice_low_pass_filter},
+                            {4, AudioCommonPropertyType::voice_high_pass_filter},
+                            {6, AudioCommonPropertyType::voice_volume_make_up_gain},
+                            {23, AudioCommonPropertyType::game_defined_auxiliary_send_volume},
+                            {68, AudioCommonPropertyType::game_defined_auxiliary_send_low_pass_filter},
+                            {69, AudioCommonPropertyType::game_defined_auxiliary_send_high_pass_filter},
+                            {19, AudioCommonPropertyType::user_defined_auxiliary_send_volume_0},
+                            {20, AudioCommonPropertyType::user_defined_auxiliary_send_volume_1},
+                            {21, AudioCommonPropertyType::user_defined_auxiliary_send_volume_2},
+                            {22, AudioCommonPropertyType::user_defined_auxiliary_send_volume_3},
+                            {60, AudioCommonPropertyType::user_defined_auxiliary_send_low_pass_filter_0},
+                            {61, AudioCommonPropertyType::user_defined_auxiliary_send_low_pass_filter_1},
+                            {62, AudioCommonPropertyType::user_defined_auxiliary_send_low_pass_filter_2},
+                            {63, AudioCommonPropertyType::user_defined_auxiliary_send_low_pass_filter_3},
+                            {64, AudioCommonPropertyType::user_defined_auxiliary_send_high_pass_filter_0},
+                            {65, AudioCommonPropertyType::user_defined_auxiliary_send_high_pass_filter_1},
+                            {66, AudioCommonPropertyType::user_defined_auxiliary_send_high_pass_filter_2},
+                            {67, AudioCommonPropertyType::user_defined_auxiliary_send_high_pass_filter_3},
+                            {14, AudioCommonPropertyType::positioning_center_percent},
+                            {12, AudioCommonPropertyType::positioning_speaker_panning_x},
+                            {13, AudioCommonPropertyType::positioning_speaker_panning_y},
+                            {71, AudioCommonPropertyType::positioning_listener_routing_speaker_panning_division_spatialization_mix},
+                            {70, AudioCommonPropertyType::positioning_listener_routing_attenuation_id},
+                            {27, AudioCommonPropertyType::hdr_threshold},
+                            {28, AudioCommonPropertyType::hdr_ratio},
+                            {29, AudioCommonPropertyType::hdr_release_time},
+                            {30, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_id},
+                            {31, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_minimum},
+                            {32, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_maximum},
+                            {33, AudioCommonPropertyType::hdr_envelope_tracking_active_range},
+                            {45, AudioCommonPropertyType::midi_note_tracking_root_note},
+                            {46, AudioCommonPropertyType::midi_event_play_on},
+                            {47, AudioCommonPropertyType::midi_transformation_transposition},
+                            {48, AudioCommonPropertyType::midi_transformation_velocity_offset},
+                            {49, AudioCommonPropertyType::midi_filter_key_range_minimum},
+                            {50, AudioCommonPropertyType::midi_filter_key_range_maximum},
+                            {51, AudioCommonPropertyType::midi_filter_velocity_minimum},
+                            {52, AudioCommonPropertyType::midi_filter_velocity_maximum},
+                            {53, AudioCommonPropertyType::midi_filter_channel},
+                            {55, AudioCommonPropertyType::midi_clip_tempo_source},
+                            {56, AudioCommonPropertyType::midi_target_id},
+                            {7, AudioCommonPropertyType::playback_priority_value},
+                            {8, AudioCommonPropertyType::playback_priority_offset_at_maximum_distance},
+                            {59, AudioCommonPropertyType::playback_initial_delay},
+                            {58, AudioCommonPropertyType::playback_loop},
+                            {54, AudioCommonPropertyType::playback_speed},
+                            {57, AudioCommonPropertyType::mixer_id}
+                        }};
 
                         //---------------------------------
                         if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -2985,61 +3053,62 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                     }
                     else if (k_version < 140_ui)
                     {
-                        constexpr auto value_package = std::array<std::pair<uint8_t, AudioCommonPropertyType>, 54>{
-                            std::pair(5, AudioCommonPropertyType::bus_volume),
-                            std::pair(24, AudioCommonPropertyType::output_bus_volume),
-                            std::pair(26, AudioCommonPropertyType::output_bus_low_pass_filter),
-                            std::pair(25, AudioCommonPropertyType::output_bus_high_pass_filter),
-                            std::pair(0, AudioCommonPropertyType::voice_volume),
-                            std::pair(2, AudioCommonPropertyType::voice_pitch),
-                            std::pair(3, AudioCommonPropertyType::voice_low_pass_filter),
-                            std::pair(4, AudioCommonPropertyType::voice_high_pass_filter),
-                            std::pair(6, AudioCommonPropertyType::voice_volume_make_up_gain),
-                            std::pair(23, AudioCommonPropertyType::game_defined_auxiliary_send_volume),
-                            std::pair(68, AudioCommonPropertyType::game_defined_auxiliary_send_low_pass_filter),
-                            std::pair(69, AudioCommonPropertyType::game_defined_auxiliary_send_high_pass_filter),
-                            std::pair(19, AudioCommonPropertyType::user_defined_auxiliary_send_volume_0),
-                            std::pair(20, AudioCommonPropertyType::user_defined_auxiliary_send_volume_1),
-                            std::pair(21, AudioCommonPropertyType::user_defined_auxiliary_send_volume_2),
-                            std::pair(22, AudioCommonPropertyType::user_defined_auxiliary_send_volume_3),
-                            std::pair(60, AudioCommonPropertyType::user_defined_auxiliary_send_low_pass_filter_0),
-                            std::pair(61, AudioCommonPropertyType::user_defined_auxiliary_send_low_pass_filter_1),
-                            std::pair(62, AudioCommonPropertyType::user_defined_auxiliary_send_low_pass_filter_2),
-                            std::pair(63, AudioCommonPropertyType::user_defined_auxiliary_send_low_pass_filter_3),
-                            std::pair(64, AudioCommonPropertyType::user_defined_auxiliary_send_high_pass_filter_0),
-                            std::pair(65, AudioCommonPropertyType::user_defined_auxiliary_send_high_pass_filter_1),
-                            std::pair(66, AudioCommonPropertyType::user_defined_auxiliary_send_high_pass_filter_2),
-                            std::pair(72, AudioCommonPropertyType::user_defined_auxiliary_send_high_pass_filter_3),
-                            std::pair(67, AudioCommonPropertyType::early_reflection_auxiliary_send_volume),
-                            std::pair(14, AudioCommonPropertyType::positioning_center_percent),
-                            std::pair(12, AudioCommonPropertyType::positioning_speaker_panning_x),
-                            std::pair(13, AudioCommonPropertyType::positioning_speaker_panning_y),
-                            std::pair(71, AudioCommonPropertyType::positioning_listener_routing_speaker_panning_division_spatialization_mix),
-                            std::pair(70, AudioCommonPropertyType::positioning_listener_routing_attenuation_id),
-                            std::pair(27, AudioCommonPropertyType::hdr_threshold),
-                            std::pair(28, AudioCommonPropertyType::hdr_ratio),
-                            std::pair(29, AudioCommonPropertyType::hdr_release_time),
-                            std::pair(30, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_id),
-                            std::pair(31, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_minimum),
-                            std::pair(32, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_maximum),
-                            std::pair(33, AudioCommonPropertyType::hdr_envelope_tracking_active_range),
-                            std::pair(45, AudioCommonPropertyType::midi_note_tracking_root_note),
-                            std::pair(46, AudioCommonPropertyType::midi_event_play_on),
-                            std::pair(47, AudioCommonPropertyType::midi_transformation_transposition),
-                            std::pair(48, AudioCommonPropertyType::midi_transformation_velocity_offset),
-                            std::pair(49, AudioCommonPropertyType::midi_filter_key_range_minimum),
-                            std::pair(50, AudioCommonPropertyType::midi_filter_key_range_maximum),
-                            std::pair(51, AudioCommonPropertyType::midi_filter_velocity_minimum),
-                            std::pair(52, AudioCommonPropertyType::midi_filter_velocity_maximum),
-                            std::pair(53, AudioCommonPropertyType::midi_filter_channel),
-                            std::pair(55, AudioCommonPropertyType::midi_clip_tempo_source),
-                            std::pair(56, AudioCommonPropertyType::midi_target_id),
-                            std::pair(7, AudioCommonPropertyType::playback_priority_value),
-                            std::pair(8, AudioCommonPropertyType::playback_priority_offset_at_maximum_distance),
-                            std::pair(59, AudioCommonPropertyType::playback_initial_delay),
-                            std::pair(58, AudioCommonPropertyType::playback_loop),
-                            std::pair(54, AudioCommonPropertyType::playback_speed),
-                            std::pair(57, AudioCommonPropertyType::mixer_id)};
+                        constexpr std::array<std::pair<uint8_t, AudioCommonPropertyType>, 54> value_package = {{
+                            {5, AudioCommonPropertyType::bus_volume},
+                            {24, AudioCommonPropertyType::output_bus_volume},
+                            {26, AudioCommonPropertyType::output_bus_low_pass_filter},
+                            {25, AudioCommonPropertyType::output_bus_high_pass_filter},
+                            {0, AudioCommonPropertyType::voice_volume},
+                            {2, AudioCommonPropertyType::voice_pitch},
+                            {3, AudioCommonPropertyType::voice_low_pass_filter},
+                            {4, AudioCommonPropertyType::voice_high_pass_filter},
+                            {6, AudioCommonPropertyType::voice_volume_make_up_gain},
+                            {23, AudioCommonPropertyType::game_defined_auxiliary_send_volume},
+                            {68, AudioCommonPropertyType::game_defined_auxiliary_send_low_pass_filter},
+                            {69, AudioCommonPropertyType::game_defined_auxiliary_send_high_pass_filter},
+                            {19, AudioCommonPropertyType::user_defined_auxiliary_send_volume_0},
+                            {20, AudioCommonPropertyType::user_defined_auxiliary_send_volume_1},
+                            {21, AudioCommonPropertyType::user_defined_auxiliary_send_volume_2},
+                            {22, AudioCommonPropertyType::user_defined_auxiliary_send_volume_3},
+                            {60, AudioCommonPropertyType::user_defined_auxiliary_send_low_pass_filter_0},
+                            {61, AudioCommonPropertyType::user_defined_auxiliary_send_low_pass_filter_1},
+                            {62, AudioCommonPropertyType::user_defined_auxiliary_send_low_pass_filter_2},
+                            {63, AudioCommonPropertyType::user_defined_auxiliary_send_low_pass_filter_3},
+                            {64, AudioCommonPropertyType::user_defined_auxiliary_send_high_pass_filter_0},
+                            {65, AudioCommonPropertyType::user_defined_auxiliary_send_high_pass_filter_1},
+                            {66, AudioCommonPropertyType::user_defined_auxiliary_send_high_pass_filter_2},
+                            {72, AudioCommonPropertyType::user_defined_auxiliary_send_high_pass_filter_3},
+                            {67, AudioCommonPropertyType::early_reflection_auxiliary_send_volume},
+                            {14, AudioCommonPropertyType::positioning_center_percent},
+                            {12, AudioCommonPropertyType::positioning_speaker_panning_x},
+                            {13, AudioCommonPropertyType::positioning_speaker_panning_y},
+                            {71, AudioCommonPropertyType::positioning_listener_routing_speaker_panning_division_spatialization_mix},
+                            {70, AudioCommonPropertyType::positioning_listener_routing_attenuation_id},
+                            {27, AudioCommonPropertyType::hdr_threshold},
+                            {28, AudioCommonPropertyType::hdr_ratio},
+                            {29, AudioCommonPropertyType::hdr_release_time},
+                            {30, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_id},
+                            {31, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_minimum},
+                            {32, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_maximum},
+                            {33, AudioCommonPropertyType::hdr_envelope_tracking_active_range},
+                            {45, AudioCommonPropertyType::midi_note_tracking_root_note},
+                            {46, AudioCommonPropertyType::midi_event_play_on},
+                            {47, AudioCommonPropertyType::midi_transformation_transposition},
+                            {48, AudioCommonPropertyType::midi_transformation_velocity_offset},
+                            {49, AudioCommonPropertyType::midi_filter_key_range_minimum},
+                            {50, AudioCommonPropertyType::midi_filter_key_range_maximum},
+                            {51, AudioCommonPropertyType::midi_filter_velocity_minimum},
+                            {52, AudioCommonPropertyType::midi_filter_velocity_maximum},
+                            {53, AudioCommonPropertyType::midi_filter_channel},
+                            {55, AudioCommonPropertyType::midi_clip_tempo_source},
+                            {56, AudioCommonPropertyType::midi_target_id},
+                            {7, AudioCommonPropertyType::playback_priority_value},
+                            {8, AudioCommonPropertyType::playback_priority_offset_at_maximum_distance},
+                            {59, AudioCommonPropertyType::playback_initial_delay},
+                            {58, AudioCommonPropertyType::playback_loop},
+                            {54, AudioCommonPropertyType::playback_speed},
+                            {57, AudioCommonPropertyType::mixer_id}
+                        }};
 
                         //---------------------------------
                         if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -3065,62 +3134,63 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                     }
                     else if (k_version < 150_ui)
                     {
-                        constexpr auto value_package = std::array<std::pair<uint8_t, AudioCommonPropertyType>, 55>{
-                            std::pair(5, AudioCommonPropertyType::bus_volume),
-                            std::pair(24, AudioCommonPropertyType::output_bus_volume),
-                            std::pair(26, AudioCommonPropertyType::output_bus_low_pass_filter),
-                            std::pair(25, AudioCommonPropertyType::output_bus_high_pass_filter),
-                            std::pair(0, AudioCommonPropertyType::voice_volume),
-                            std::pair(2, AudioCommonPropertyType::voice_pitch),
-                            std::pair(3, AudioCommonPropertyType::voice_low_pass_filter),
-                            std::pair(4, AudioCommonPropertyType::voice_high_pass_filter),
-                            std::pair(6, AudioCommonPropertyType::voice_volume_make_up_gain),
-                            std::pair(23, AudioCommonPropertyType::game_defined_auxiliary_send_volume),
-                            std::pair(68, AudioCommonPropertyType::game_defined_auxiliary_send_low_pass_filter),
-                            std::pair(69, AudioCommonPropertyType::game_defined_auxiliary_send_high_pass_filter),
-                            std::pair(19, AudioCommonPropertyType::user_defined_auxiliary_send_volume_0),
-                            std::pair(20, AudioCommonPropertyType::user_defined_auxiliary_send_volume_1),
-                            std::pair(21, AudioCommonPropertyType::user_defined_auxiliary_send_volume_2),
-                            std::pair(22, AudioCommonPropertyType::user_defined_auxiliary_send_volume_3),
-                            std::pair(60, AudioCommonPropertyType::user_defined_auxiliary_send_low_pass_filter_0),
-                            std::pair(61, AudioCommonPropertyType::user_defined_auxiliary_send_low_pass_filter_1),
-                            std::pair(62, AudioCommonPropertyType::user_defined_auxiliary_send_low_pass_filter_2),
-                            std::pair(63, AudioCommonPropertyType::user_defined_auxiliary_send_low_pass_filter_3),
-                            std::pair(64, AudioCommonPropertyType::user_defined_auxiliary_send_high_pass_filter_0),
-                            std::pair(65, AudioCommonPropertyType::user_defined_auxiliary_send_high_pass_filter_1),
-                            std::pair(66, AudioCommonPropertyType::user_defined_auxiliary_send_high_pass_filter_2),
-                            std::pair(72, AudioCommonPropertyType::user_defined_auxiliary_send_high_pass_filter_3),
-                            std::pair(67, AudioCommonPropertyType::early_reflection_auxiliary_send_volume),
-                            std::pair(14, AudioCommonPropertyType::positioning_center_percent),
-                            std::pair(12, AudioCommonPropertyType::positioning_speaker_panning_x),
-                            std::pair(13, AudioCommonPropertyType::positioning_speaker_panning_y),
-                            std::pair(73, AudioCommonPropertyType::positioning_speaker_panning_z),
-                            std::pair(71, AudioCommonPropertyType::positioning_listener_routing_speaker_panning_division_spatialization_mix),
-                            std::pair(70, AudioCommonPropertyType::positioning_listener_routing_attenuation_id),
-                            std::pair(27, AudioCommonPropertyType::hdr_threshold),
-                            std::pair(28, AudioCommonPropertyType::hdr_ratio),
-                            std::pair(29, AudioCommonPropertyType::hdr_release_time),
-                            std::pair(30, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_id),
-                            std::pair(31, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_minimum),
-                            std::pair(32, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_maximum),
-                            std::pair(33, AudioCommonPropertyType::hdr_envelope_tracking_active_range),
-                            std::pair(45, AudioCommonPropertyType::midi_note_tracking_root_note),
-                            std::pair(46, AudioCommonPropertyType::midi_event_play_on),
-                            std::pair(47, AudioCommonPropertyType::midi_transformation_transposition),
-                            std::pair(48, AudioCommonPropertyType::midi_transformation_velocity_offset),
-                            std::pair(49, AudioCommonPropertyType::midi_filter_key_range_minimum),
-                            std::pair(50, AudioCommonPropertyType::midi_filter_key_range_maximum),
-                            std::pair(51, AudioCommonPropertyType::midi_filter_velocity_minimum),
-                            std::pair(52, AudioCommonPropertyType::midi_filter_velocity_maximum),
-                            std::pair(53, AudioCommonPropertyType::midi_filter_channel),
-                            std::pair(55, AudioCommonPropertyType::midi_clip_tempo_source),
-                            std::pair(56, AudioCommonPropertyType::midi_target_id),
-                            std::pair(7, AudioCommonPropertyType::playback_priority_value),
-                            std::pair(8, AudioCommonPropertyType::playback_priority_offset_at_maximum_distance),
-                            std::pair(59, AudioCommonPropertyType::playback_initial_delay),
-                            std::pair(58, AudioCommonPropertyType::playback_loop),
-                            std::pair(54, AudioCommonPropertyType::playback_speed),
-                            std::pair(57, AudioCommonPropertyType::mixer_id)};
+                        constexpr std::array<std::pair<uint8_t, AudioCommonPropertyType>, 55> value_package = {{
+                            {5, AudioCommonPropertyType::bus_volume},
+                            {24, AudioCommonPropertyType::output_bus_volume},
+                            {26, AudioCommonPropertyType::output_bus_low_pass_filter},
+                            {25, AudioCommonPropertyType::output_bus_high_pass_filter},
+                            {0, AudioCommonPropertyType::voice_volume},
+                            {2, AudioCommonPropertyType::voice_pitch},
+                            {3, AudioCommonPropertyType::voice_low_pass_filter},
+                            {4, AudioCommonPropertyType::voice_high_pass_filter},
+                            {6, AudioCommonPropertyType::voice_volume_make_up_gain},
+                            {23, AudioCommonPropertyType::game_defined_auxiliary_send_volume},
+                            {68, AudioCommonPropertyType::game_defined_auxiliary_send_low_pass_filter},
+                            {69, AudioCommonPropertyType::game_defined_auxiliary_send_high_pass_filter},
+                            {19, AudioCommonPropertyType::user_defined_auxiliary_send_volume_0},
+                            {20, AudioCommonPropertyType::user_defined_auxiliary_send_volume_1},
+                            {21, AudioCommonPropertyType::user_defined_auxiliary_send_volume_2},
+                            {22, AudioCommonPropertyType::user_defined_auxiliary_send_volume_3},
+                            {60, AudioCommonPropertyType::user_defined_auxiliary_send_low_pass_filter_0},
+                            {61, AudioCommonPropertyType::user_defined_auxiliary_send_low_pass_filter_1},
+                            {62, AudioCommonPropertyType::user_defined_auxiliary_send_low_pass_filter_2},
+                            {63, AudioCommonPropertyType::user_defined_auxiliary_send_low_pass_filter_3},
+                            {64, AudioCommonPropertyType::user_defined_auxiliary_send_high_pass_filter_0},
+                            {65, AudioCommonPropertyType::user_defined_auxiliary_send_high_pass_filter_1},
+                            {66, AudioCommonPropertyType::user_defined_auxiliary_send_high_pass_filter_2},
+                            {72, AudioCommonPropertyType::user_defined_auxiliary_send_high_pass_filter_3},
+                            {67, AudioCommonPropertyType::early_reflection_auxiliary_send_volume},
+                            {14, AudioCommonPropertyType::positioning_center_percent},
+                            {12, AudioCommonPropertyType::positioning_speaker_panning_x},
+                            {13, AudioCommonPropertyType::positioning_speaker_panning_y},
+                            {73, AudioCommonPropertyType::positioning_speaker_panning_z},
+                            {71, AudioCommonPropertyType::positioning_listener_routing_speaker_panning_division_spatialization_mix},
+                            {70, AudioCommonPropertyType::positioning_listener_routing_attenuation_id},
+                            {27, AudioCommonPropertyType::hdr_threshold},
+                            {28, AudioCommonPropertyType::hdr_ratio},
+                            {29, AudioCommonPropertyType::hdr_release_time},
+                            {30, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_id},
+                            {31, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_minimum},
+                            {32, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_maximum},
+                            {33, AudioCommonPropertyType::hdr_envelope_tracking_active_range},
+                            {45, AudioCommonPropertyType::midi_note_tracking_root_note},
+                            {46, AudioCommonPropertyType::midi_event_play_on},
+                            {47, AudioCommonPropertyType::midi_transformation_transposition},
+                            {48, AudioCommonPropertyType::midi_transformation_velocity_offset},
+                            {49, AudioCommonPropertyType::midi_filter_key_range_minimum},
+                            {50, AudioCommonPropertyType::midi_filter_key_range_maximum},
+                            {51, AudioCommonPropertyType::midi_filter_velocity_minimum},
+                            {52, AudioCommonPropertyType::midi_filter_velocity_maximum},
+                            {53, AudioCommonPropertyType::midi_filter_channel},
+                            {55, AudioCommonPropertyType::midi_clip_tempo_source},
+                            {56, AudioCommonPropertyType::midi_target_id},
+                            {7, AudioCommonPropertyType::playback_priority_value},
+                            {8, AudioCommonPropertyType::playback_priority_offset_at_maximum_distance},
+                            {59, AudioCommonPropertyType::playback_initial_delay},
+                            {58, AudioCommonPropertyType::playback_loop},
+                            {54, AudioCommonPropertyType::playback_speed},
+                            {57, AudioCommonPropertyType::mixer_id}
+                        }};
 
                         //---------------------------------
                         if constexpr (std::is_same<InputType, uint8_t>::value)
@@ -3146,61 +3216,62 @@ namespace Sen::Kernel::Support::WWise::SoundBank
                     }
                     else
                     {
-                        constexpr auto value_package = std::array<std::pair<uint8_t, AudioCommonPropertyType>, 54>{
-                            std::pair(4, AudioCommonPropertyType::bus_volume),
-                            std::pair(13, AudioCommonPropertyType::output_bus_volume),
-                            std::pair(15, AudioCommonPropertyType::output_bus_low_pass_filter),
-                            std::pair(14, AudioCommonPropertyType::output_bus_high_pass_filter),
-                            std::pair(0, AudioCommonPropertyType::voice_volume),
-                            std::pair(1, AudioCommonPropertyType::voice_pitch),
-                            std::pair(2, AudioCommonPropertyType::voice_low_pass_filter),
-                            std::pair(3, AudioCommonPropertyType::voice_high_pass_filter),
-                            std::pair(5, AudioCommonPropertyType::voice_volume_make_up_gain),
-                            std::pair(12, AudioCommonPropertyType::game_defined_auxiliary_send_volume),
-                            std::pair(24, AudioCommonPropertyType::game_defined_auxiliary_send_low_pass_filter),
-                            std::pair(25, AudioCommonPropertyType::game_defined_auxiliary_send_high_pass_filter),
-                            std::pair(8, AudioCommonPropertyType::user_defined_auxiliary_send_volume_0),
-                            std::pair(9, AudioCommonPropertyType::user_defined_auxiliary_send_volume_1),
-                            std::pair(10, AudioCommonPropertyType::user_defined_auxiliary_send_volume_2),
-                            std::pair(11, AudioCommonPropertyType::user_defined_auxiliary_send_volume_3),
-                            std::pair(16, AudioCommonPropertyType::user_defined_auxiliary_send_low_pass_filter_0),
-                            std::pair(17, AudioCommonPropertyType::user_defined_auxiliary_send_low_pass_filter_1),
-                            std::pair(18, AudioCommonPropertyType::user_defined_auxiliary_send_low_pass_filter_2),
-                            std::pair(19, AudioCommonPropertyType::user_defined_auxiliary_send_low_pass_filter_3),
-                            std::pair(20, AudioCommonPropertyType::user_defined_auxiliary_send_high_pass_filter_0),
-                            std::pair(21, AudioCommonPropertyType::user_defined_auxiliary_send_high_pass_filter_1),
-                            std::pair(22, AudioCommonPropertyType::user_defined_auxiliary_send_high_pass_filter_2),
-                            std::pair(23, AudioCommonPropertyType::user_defined_auxiliary_send_high_pass_filter_3),
-                            std::pair(26, AudioCommonPropertyType::early_reflection_auxiliary_send_volume),
-                            std::pair(41, AudioCommonPropertyType::positioning_center_percent),
-                            std::pair(35, AudioCommonPropertyType::positioning_speaker_panning_x),
-                            std::pair(36, AudioCommonPropertyType::positioning_speaker_panning_y),
-                            std::pair(37, AudioCommonPropertyType::positioning_speaker_panning_z),
-                            std::pair(42, AudioCommonPropertyType::positioning_listener_routing_speaker_panning_division_spatialization_mix),
-                            std::pair(85, AudioCommonPropertyType::positioning_listener_routing_attenuation_id),
-                            std::pair(27, AudioCommonPropertyType::hdr_threshold),
-                            std::pair(28, AudioCommonPropertyType::hdr_ratio),
-                            std::pair(29, AudioCommonPropertyType::hdr_release_time),
-                            std::pair(61, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_id),
-                            std::pair(62, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_minimum),
-                            std::pair(63, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_maximum),
-                            std::pair(30, AudioCommonPropertyType::hdr_envelope_tracking_active_range),
-                            std::pair(75, AudioCommonPropertyType::midi_note_tracking_root_note),
-                            std::pair(76, AudioCommonPropertyType::midi_event_play_on),
-                            std::pair(31, AudioCommonPropertyType::midi_transformation_transposition),
-                            std::pair(32, AudioCommonPropertyType::midi_transformation_velocity_offset),
-                            std::pair(77, AudioCommonPropertyType::midi_filter_key_range_minimum),
-                            std::pair(78, AudioCommonPropertyType::midi_filter_key_range_maximum),
-                            std::pair(79, AudioCommonPropertyType::midi_filter_velocity_minimum),
-                            std::pair(80, AudioCommonPropertyType::midi_filter_velocity_maximum),
-                            std::pair(81, AudioCommonPropertyType::midi_filter_channel),
-                            std::pair(82, AudioCommonPropertyType::midi_clip_tempo_source),
-                            std::pair(83, AudioCommonPropertyType::midi_target_id),
-                            std::pair(6, AudioCommonPropertyType::playback_priority_value),
-                            std::pair(56, AudioCommonPropertyType::playback_priority_offset_at_maximum_distance),
-                            std::pair(34, AudioCommonPropertyType::playback_initial_delay),
-                            std::pair(84, AudioCommonPropertyType::playback_loop),
-                            std::pair(33, AudioCommonPropertyType::playback_speed)};
+                        constexpr std::array<std::pair<uint8_t, AudioCommonPropertyType>, 54> value_package = {{
+                            {4, AudioCommonPropertyType::bus_volume},
+                            {13, AudioCommonPropertyType::output_bus_volume},
+                            {15, AudioCommonPropertyType::output_bus_low_pass_filter},
+                            {14, AudioCommonPropertyType::output_bus_high_pass_filter},
+                            {0, AudioCommonPropertyType::voice_volume},
+                            {1, AudioCommonPropertyType::voice_pitch},
+                            {2, AudioCommonPropertyType::voice_low_pass_filter},
+                            {3, AudioCommonPropertyType::voice_high_pass_filter},
+                            {5, AudioCommonPropertyType::voice_volume_make_up_gain},
+                            {12, AudioCommonPropertyType::game_defined_auxiliary_send_volume},
+                            {24, AudioCommonPropertyType::game_defined_auxiliary_send_low_pass_filter},
+                            {25, AudioCommonPropertyType::game_defined_auxiliary_send_high_pass_filter},
+                            {8, AudioCommonPropertyType::user_defined_auxiliary_send_volume_0},
+                            {9, AudioCommonPropertyType::user_defined_auxiliary_send_volume_1},
+                            {10, AudioCommonPropertyType::user_defined_auxiliary_send_volume_2},
+                            {11, AudioCommonPropertyType::user_defined_auxiliary_send_volume_3},
+                            {16, AudioCommonPropertyType::user_defined_auxiliary_send_low_pass_filter_0},
+                            {17, AudioCommonPropertyType::user_defined_auxiliary_send_low_pass_filter_1},
+                            {18, AudioCommonPropertyType::user_defined_auxiliary_send_low_pass_filter_2},
+                            {19, AudioCommonPropertyType::user_defined_auxiliary_send_low_pass_filter_3},
+                            {20, AudioCommonPropertyType::user_defined_auxiliary_send_high_pass_filter_0},
+                            {21, AudioCommonPropertyType::user_defined_auxiliary_send_high_pass_filter_1},
+                            {22, AudioCommonPropertyType::user_defined_auxiliary_send_high_pass_filter_2},
+                            {23, AudioCommonPropertyType::user_defined_auxiliary_send_high_pass_filter_3},
+                            {26, AudioCommonPropertyType::early_reflection_auxiliary_send_volume},
+                            {41, AudioCommonPropertyType::positioning_center_percent},
+                            {35, AudioCommonPropertyType::positioning_speaker_panning_x},
+                            {36, AudioCommonPropertyType::positioning_speaker_panning_y},
+                            {37, AudioCommonPropertyType::positioning_speaker_panning_z},
+                            {42, AudioCommonPropertyType::positioning_listener_routing_speaker_panning_division_spatialization_mix},
+                            {85, AudioCommonPropertyType::positioning_listener_routing_attenuation_id},
+                            {27, AudioCommonPropertyType::hdr_threshold},
+                            {28, AudioCommonPropertyType::hdr_ratio},
+                            {29, AudioCommonPropertyType::hdr_release_time},
+                            {61, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_id},
+                            {62, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_minimum},
+                            {63, AudioCommonPropertyType::hdr_window_tap_output_game_parameter_maximum},
+                            {30, AudioCommonPropertyType::hdr_envelope_tracking_active_range},
+                            {75, AudioCommonPropertyType::midi_note_tracking_root_note},
+                            {76, AudioCommonPropertyType::midi_event_play_on},
+                            {31, AudioCommonPropertyType::midi_transformation_transposition},
+                            {32, AudioCommonPropertyType::midi_transformation_velocity_offset},
+                            {77, AudioCommonPropertyType::midi_filter_key_range_minimum},
+                            {78, AudioCommonPropertyType::midi_filter_key_range_maximum},
+                            {79, AudioCommonPropertyType::midi_filter_velocity_minimum},
+                            {80, AudioCommonPropertyType::midi_filter_velocity_maximum},
+                            {81, AudioCommonPropertyType::midi_filter_channel},
+                            {82, AudioCommonPropertyType::midi_clip_tempo_source},
+                            {83, AudioCommonPropertyType::midi_target_id},
+                            {6, AudioCommonPropertyType::playback_priority_value},
+                            {56, AudioCommonPropertyType::playback_priority_offset_at_maximum_distance},
+                            {34, AudioCommonPropertyType::playback_initial_delay},
+                            {84, AudioCommonPropertyType::playback_loop},
+                            {33, AudioCommonPropertyType::playback_speed}
+                        }};
 
                         //---------------------------------
                         if constexpr (std::is_same<InputType, uint8_t>::value)

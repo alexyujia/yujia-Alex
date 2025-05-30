@@ -109,7 +109,7 @@ namespace Sen::Kernel::Support::PopCap::ResourceStreamBundle
             }
         }
 
-        struct HeaderInformaiton
+        struct HeaderInformation
         {
             uint32_t magic;
             uint32_t version;
@@ -141,7 +141,7 @@ namespace Sen::Kernel::Support::PopCap::ResourceStreamBundle
 
         inline static auto exchange_to_header(
             DataStreamView &stream,
-            HeaderInformaiton &value) -> void
+            HeaderInformation &value) -> void
         {
             stream.read_pos = k_begin_index;
             value.magic = stream.readUint32();
@@ -176,7 +176,7 @@ namespace Sen::Kernel::Support::PopCap::ResourceStreamBundle
         
         inline static auto exchange_from_header(
             DataStreamView &stream,
-            HeaderInformaiton const &value) -> void
+            HeaderInformation const &value) -> void
         {
             stream.write_pos = k_begin_index;
             stream.writeUint32(value.magic);
@@ -400,7 +400,7 @@ namespace Sen::Kernel::Support::PopCap::ResourceStreamBundle
             return;
         }
 
-        struct TextureInfomation
+        struct TextureInformation
         {
             uint32_t size_width;
             uint32_t size_height;
@@ -413,7 +413,7 @@ namespace Sen::Kernel::Support::PopCap::ResourceStreamBundle
         template <auto texture_inforamtion_section_block_size>
         inline static auto exchange_to_texture(
             DataStreamView &stream,
-            TextureInfomation &value) -> void
+            TextureInformation &value) -> void
         {
             static_assert(sizeof(texture_inforamtion_section_block_size) == sizeof(size_t));
             value.size_width = stream.readUint32();
@@ -435,7 +435,7 @@ namespace Sen::Kernel::Support::PopCap::ResourceStreamBundle
         template <auto texture_inforamtion_section_block_size>
         inline static auto exchange_from_texture(
             DataStreamView &stream,
-            TextureInfomation const &value) -> void
+            TextureInformation const &value) -> void
         {
             static_assert(sizeof(texture_inforamtion_section_block_size) == sizeof(size_t));
             stream.writeUint32(value.size_width);
@@ -456,14 +456,14 @@ namespace Sen::Kernel::Support::PopCap::ResourceStreamBundle
 
         struct Information
         {
-            HeaderInformaiton header;
+            HeaderInformation header;
             std::map<std::string, uint32_t> resource_path;
             std::map<std::string, uint32_t> subgroup_id;
             std::vector<SimpleGroupInformation> group_information;
             std::map<std::string, uint32_t> group_id;
             std::vector<BasicSubgroupInformation> subgroup_information;
             std::vector<PoolInformation> pool_information;
-            std::map<size_t, TextureInfomation> texture_resource_information; // fix index;
+            std::map<size_t, TextureInformation> texture_resource_information; // fix index;
         };
 
         inline static auto exchange_to_index(
