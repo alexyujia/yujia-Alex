@@ -75,9 +75,13 @@ endif()
 if(ANDROID)
   set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -stdlib=libc++ -lc++abi")
   set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++20 -stdlib=libc++")
-  set_target_properties(${TARGET_NAME} PROPERTIES
+  set_target_properties(kernel PROPERTIES
     ANDROID_STL c++_shared
   )
+  # To build for Android, run the following command:
+  # cmake -B build -S . -DCMAKE_TOOLCHAIN_FILE=<path_to_android_ndk>/build/cmake/android.toolchain.cmake -DANDROID_ABI=arm64-v8a -DANDROID_PLATFORM=android-21
+  # Replace <path_to_android_ndk> with the actual path to your Android NDK installation.
+  # You can change the ANDROID_ABI and ANDROID_PLATFORM values as needed.
 endif()
 
 include(InstallRequiredSystemLibraries)

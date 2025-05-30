@@ -24,6 +24,48 @@
 
 -   [Clang 17.0 for iPhone](https://llvm.org/)
 
+## Building for Android
+
+To build the project as an Android dynamic library (`.so` file), follow these steps:
+
+1.  **Prerequisites:**
+    *   Install the Android NDK (Native Development Kit). You can download it from the [Android NDK website](https://developer.android.com/ndk/downloads).
+    *   Ensure you have CMake installed.
+
+2.  **Configure and Build:**
+    *   Open your terminal and navigate to the root directory of this project.
+    *   Run the following CMake command to configure the build. Replace `<path_to_android_ndk>` with the actual path to your Android NDK installation:
+
+        ```bash
+        cmake -B build -S . \
+          -DCMAKE_TOOLCHAIN_FILE=<path_to_android_ndk>/build/cmake/android.toolchain.cmake \
+          -DANDROID_ABI=arm64-v8a \
+          -DANDROID_PLATFORM=android-21 \
+          -DANDROID_STL=c++_shared
+        ```
+
+        *   `ANDROID_ABI`: Specifies the target Application Binary Interface. Common values include `arm64-v8a`, `armeabi-v7a`, `x86_64`, and `x86`.
+        *   `ANDROID_PLATFORM`: Specifies the minimum Android API level. For example, `android-21` for Android 5.0 (Lollipop).
+        *   `ANDROID_STL`: Specifies the C++ standard library to use. `c++_shared` links the shared version of libc++.
+
+    *   After configuration, build the library:
+
+        ```bash
+        cmake --build build --target kernel
+        ```
+
+3.  **Output:**
+    *   The compiled dynamic library will be located in the `build/` directory (e.g., `build/libkernel.so`). The exact path might vary based on your CMake configuration within `kernel/CMakeLists.txt`.
+
+4.  **Using the Library in an Android Project:**
+    *   Create a `jniLibs` directory in your Android project's `app/src/main/` folder.
+    *   Inside `jniLibs`, create subdirectories for each ABI you built for (e.g., `arm64-v8a`, `armeabi-v7a`).
+    *   Copy the respective `.so` file into the corresponding ABI subdirectory.
+    *   You can then load the library in your Java/Kotlin code using `System.loadLibrary("kernel");` (assuming your library is named `libkernel.so`).
+    *   You will need to define JNI (Java Native Interface) functions in your C++ code to expose functionality to your Android application.
+
+Alternatively, you can download pre-built libraries from the [GitHub Actions artifacts](https://github.com/Haruma-VN/Sen.Environment/actions) for this repository.
+
 ## Dependencies
 
 -   [quickjs](https://github.com/bellard/quickjs/): JavaScript Engine used by `Kernel`, for `Clang`
