@@ -30,7 +30,7 @@ namespace Sen::Kernel::Support::PopCap::ResourceStreamBundle
 
         inline static auto process_package_manifest(
             DataStreamView &stream,
-            HeaderInformaiton const &header_structure,
+            HeaderInformation const &header_structure,
             ManifestStructure &manifest) -> void
         {
             manifest.manifest_has = true;

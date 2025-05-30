@@ -6228,10 +6228,10 @@ namespace Sen::Kernel::Interface::Script
 						auto height = int64_t{};
 						auto v1 = JS_ToBigInt64(ctx, &width, width_val);
 						auto v2 = JS_ToBigInt64(ctx, &height, height_val);
-						if (JS_IsException(v1)) {
+						if (v1 == -1) {
 							return JS_EXCEPTION;
 						}
-						if (JS_IsException(v2)) {
+						if (v2 == -1) {
 							JS_FreeValue(ctx, width_val);
 							return JS_EXCEPTION;
 						}
@@ -6413,22 +6413,22 @@ namespace Sen::Kernel::Interface::Script
 						auto x = int64_t{};
 						auto y = int64_t{};
 						auto v1 = JS_ToBigInt64(ctx, &width, width_val);
-						if (JS_IsException(v1)) {
+						if (v1 == -1) {
 							return JS_EXCEPTION;
 						}
 						auto v2 = JS_ToBigInt64(ctx, &height, height_val);
-						if (JS_IsException(v2)) {
+						if (v2 == -1) {
 							JS_FreeValue(ctx, width_val);
 							return JS_EXCEPTION;
 						}
 						auto v3 = JS_ToBigInt64(ctx, &x, x_val);
-						if (JS_IsException(v3)) {
+						if (v3 == -1) {
 							JS_FreeValue(ctx, width_val);
 							JS_FreeValue(ctx, height_val);
 							return JS_EXCEPTION;
 						}
 						auto v4 = JS_ToBigInt64(ctx, &y, y_val);
-						if (JS_IsException(v4)) {
+						if (v4 == -1) {
 							JS_FreeValue(ctx, width_val);
 							JS_FreeValue(ctx, height_val);
 							JS_FreeValue(ctx, x_val);
