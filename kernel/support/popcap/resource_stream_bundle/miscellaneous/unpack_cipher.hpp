@@ -179,7 +179,7 @@ namespace Sen::Kernel::Support::PopCap::ResourceStreamBundle::Miscellaneous
 						packet_stream.writeBytes(stream.getBytes(static_cast<size_t>(basic_subgroup_information.offset), static_cast<size_t>(basic_subgroup_information.offset) + static_cast<size_t>(basic_subgroup_information.size)));
 						if (!(packet_stream.readUint32(k_begin_index) == ResourceStreamGroup::Common::k_magic_identifier && packet_stream.readUint32() == definition.version && packet_stream.readUint32(k_resource_information_section_offset_in_packet) == basic_subgroup_information.resource_data_section_compression))
 						{
-							auto information_structure_header = ResourceStreamGroup::Common::HeaderInformaiton{};
+							auto information_structure_header = ResourceStreamGroup::Common::HeaderInformation{};
 							information_structure_header.magic = ResourceStreamGroup::Common::k_magic_identifier;
 							information_structure_header.version = definition.version;
 							information_structure_header.resource_data_section_compression = basic_subgroup_information.resource_data_section_compression;

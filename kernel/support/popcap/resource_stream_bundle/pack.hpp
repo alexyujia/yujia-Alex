@@ -26,7 +26,7 @@ namespace Sen::Kernel::Support::PopCap::ResourceStreamBundle
 
         inline static auto process_package_manifest(
             DataStreamView &stream,
-            HeaderInformaiton &header_structure,
+            HeaderInformation &header_structure,
             ManifestStructure const &manifest) -> void
         {
             auto group_manifest_information_structure_stream = DataStreamView{};
@@ -221,7 +221,7 @@ namespace Sen::Kernel::Support::PopCap::ResourceStreamBundle
                             compare_conditional(packet_structure_resource.texture_additional.value.dimension.width, resource_information.texture_additional.value.dimension.width, subgroup_id, "popcap.rsb.mismatch_texture_width"_sv);
                             compare_conditional(packet_structure_resource.texture_additional.value.dimension.height, resource_information.texture_additional.value.dimension.height, subgroup_id, "popcap.rsb.mismatch_texture_height"_sv);
                             try_assert(definition.texture_information_section_size == resource_information.texture_additional.value.texture_resource_information_section_block_size, "invalid_information_section_block_size");
-                            auto texture_information_structure = TextureInfomation{};
+                        auto texture_information_structure = TextureInformation{};
                             texture_information_structure.size_width = resource_information.texture_additional.value.dimension.width;
                             texture_information_structure.size_height = resource_information.texture_additional.value.dimension.height;
                             texture_information_structure.pitch = resource_information.texture_additional.value.texture_infomation.pitch;

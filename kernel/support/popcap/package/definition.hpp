@@ -48,7 +48,7 @@ namespace Sen::Kernel::Support::PopCap::Package
         return;
     }
 
-    struct PackageInfomartion
+    struct PackageInformation
     {
         PackagePlatformEnumeration::Type package_platform;
         bool zlib_compression;
@@ -58,7 +58,7 @@ namespace Sen::Kernel::Support::PopCap::Package
 
     inline auto to_json(
         nlohmann::ordered_json &nlohmann_json_j,
-        const PackageInfomartion &nlohmann_json_t) -> void
+        const PackageInformation &nlohmann_json_t) -> void
     {
         nlohmann_json_j["package_platform"] = nlohmann_json_t.package_platform;
         switch (nlohmann_json_t.package_platform)
@@ -94,7 +94,7 @@ namespace Sen::Kernel::Support::PopCap::Package
 
     inline auto from_json(
         const nlohmann::ordered_json &nlohmann_json_j,
-        PackageInfomartion &nlohmann_json_t) -> void
+        PackageInformation &nlohmann_json_t) -> void
     {
         auto package_platform_string = nlohmann_json_j["package_platform"].get<std::string>();
         switch (hash_sv(package_platform_string))

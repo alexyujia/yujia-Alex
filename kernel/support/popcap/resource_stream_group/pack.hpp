@@ -60,7 +60,7 @@ namespace Sen::Kernel::Support::PopCap::ResourceStreamGroup
                 resource_information_structure[resource_definition_path] = resource_information;
             }
             stream.writeNull(information_header_section_size);
-            auto information_structure_header = HeaderInformaiton{
+            auto information_structure_header = HeaderInformation{
                 .resource_information_section_offset = static_cast<uint32_t>(stream.write_pos)
             };
             CompiledMapData::encode(stream, resource_information_structure, &exchange_from_resource_infomation);

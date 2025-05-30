@@ -255,23 +255,23 @@ namespace Sen::Kernel::Support::Miscellaneous::Shared
     }
 
 
-    template <typename value, float rate_val>
+    template <typename value, const float& rate_ref>
         requires std::is_arithmetic_v<value>
     inline static auto exchange_floater_with_rate(
         DataStreamView &stream,
         double &data) -> void
     {
-        data = static_cast<double>(static_cast<float>(stream.read_of<value>()) / rate_val);
+        data = static_cast<double>(static_cast<float>(stream.read_of<value>()) / rate_ref);
         return;
     }
 
-    template <typename value, float rate_val>
+    template <typename value, const float& rate_ref>
         requires std::is_integral_v<value> || std::is_floating_point_v<value>
     inline static auto exchange_floater_with_rate(
         double const &data,
         DataStreamView &stream) -> void
     {
-        stream.write_of<value>(static_cast<value>(std::round(static_cast<float>(data) * rate_val)));
+        stream.write_of<value>(static_cast<value>(std::round(static_cast<float>(data) * rate_ref)));
         return;
     }
 

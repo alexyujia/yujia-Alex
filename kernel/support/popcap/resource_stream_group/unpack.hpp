@@ -20,7 +20,7 @@ namespace Sen::Kernel::Support::PopCap::ResourceStreamGroup
             PacketStructure &definition,
             Args &args) -> void
         {
-            auto information_structure_header = HeaderInformaiton{};
+            auto information_structure_header = HeaderInformation{};
             exchange_header(stream, information_structure_header);
             assert_conditional(information_structure_header.magic == k_magic_identifier, fmt::format("{}", Language::get("popcap.rsg.unpack.invalid_rsg_magic")), "process_package"); 
             auto index = std::find(k_version_list.begin(), k_version_list.end(), static_cast<int>(information_structure_header.version));
