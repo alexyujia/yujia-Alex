@@ -43,6 +43,18 @@ target_link_libraries(
 	zlib
 )
 
-if(CMAKE_SYSTEM_PROCESSOR MATCHES "arm")
-    target_compile_definitions(${PROJECT_NAME} PUBLIC PNG_ARM_NEON_OPT=0)
+if(CMAKE_SYSTEM_PROCESSOR MATCHES "arm" OR ANDROID_ABI MATCHES "arm")
+    # Disable ARM NEON optimizations explicitly
+    target_compile_definitions(${PROJECT_NAME} PUBLIC
+        PNG_ARM_NEON_OPT=0
+        PNG_ARM_NEON_API_SUPPORTED=0
+        PNG_ARM_NEON_CHECK_SUPPORTED=0
+    )
+    # As an extra precaution, also try to undefine any pre-existing macros
+    # though target_compile_definitions should take precedence for values.
+    # This might not be strictly necessary if the above are respected.
+    target_compile_options(${PROJECT_NAME} PRIVATE
+        "-UPNG_ARM_NEON_API_SUPPORTED"
+        "-UPNG_ARM_NEON_CHECK_SUPPORTED"
+    )
 endif()
